@@ -1,0 +1,1922 @@
+[
+    {
+        "pregunta": "¿Qué es el Machine Learning?",
+        "respuesta": "El Machine Learning es una rama de la Inteligencia Artificial que se centra en el desarrollo de sistemas que pueden aprender y mejorar su rendimiento por sí mismos, sin ser programados explícitamente. Estos sistemas se entrenan con un gran volumen de datos para identificar patrones y realizar predicciones."
+    },
+    {
+        "pregunta": "¿Qué tipos de aprendizaje existen en Machine Learning?",
+        "respuesta": "Existen tres tipos principales: el aprendizaje supervisado, donde el modelo se entrena con datos etiquetados; el aprendizaje no supervisado, donde el algoritmo busca patrones en datos sin etiquetar; y el aprendizaje por refuerzo, donde un agente aprende mediante señales de recompensa o castigo."
+    },
+    {
+        "pregunta": "¿Qué es el overfitting?",
+        "respuesta": "El overfitting es un fenómeno en el que un modelo memoriza los datos de entrenamiento en lugar de aprender las reglas subyacentes. Esto provoca que funcione muy bien con los datos que ya ha visto, pero que falle al realizar predicciones sobre datos nuevos."
+    },
+    {
+        "pregunta": "¿Qué es una red neuronal?",
+        "respuesta": "Una red neuronal es un modelo computacional inspirado en el cerebro biológico, compuesto por nodos interconectados llamados neuronas artificiales que procesan información. Estas neuronas trabajan en conjunto para realizar tareas como clasificaciones o predicciones."
+    },
+    {
+        "pregunta": "¿Qué elementos forman una neurona artificial?",
+        "respuesta": "Una neurona artificial está formada por tres elementos: las entradas, que son las señales que recibe; los pesos, que determinan la importancia de cada entrada; y el sesgo, un término independiente que permite desplazar el umbral de activación."
+    },
+    {
+        "pregunta": "¿Qué es una función de activación?",
+        "respuesta": "Es una función no lineal que se aplica a la combinación lineal de las entradas con sus pesos. Su propósito es permitir que el modelo aprenda representaciones que vayan más allá de simples relaciones lineales."
+    },
+    {
+        "pregunta": "¿Qué es el Deep Learning?",
+        "respuesta": "El Deep Learning es un campo del Machine Learning que utiliza redes neuronales con múltiples capas de procesamiento para modelar patrones complejos. Las primeras capas detectan detalles simples y las capas sucesivas combinan esos detalles para reconocer formas cada vez más abstractas."
+    },
+    {
+        "pregunta": "¿Qué es el desvanecimiento del gradiente?",
+        "respuesta": "Es un fenómeno que ocurre en redes neuronales profundas donde la norma del gradiente se atenúa exponencialmente al retropropagarse a través de muchas capas. Esto provoca que las primeras capas de la red dejen de aprender porque las actualizaciones de sus pesos se vuelven prácticamente nulas."
+    },
+    {
+        "pregunta": "¿Por qué se produce el desvanecimiento del gradiente?",
+        "respuesta": "Se produce porque al aplicar la regla de la cadena para calcular el gradiente en las primeras capas, se multiplican secuencialmente las matrices jacobianas de cada capa. Si la norma de estas matrices es menor que 1, el producto tiende a cero conforme crece la profundidad."
+    },
+    {
+        "pregunta": "¿Qué es la retropropagación?",
+        "respuesta": "La retropropagación o backpropagation es el algoritmo que calcula las derivadas parciales de la función de pérdida respecto a los pesos de la red, aplicando la regla de la cadena desde la capa de salida hacia las capas de entrada. Permite ajustar los pesos para minimizar el error."
+    },
+    {
+        "pregunta": "¿Qué dice el Teorema de Aproximación Universal?",
+        "respuesta": "Establece que una red neuronal con una única capa oculta suficientemente ancha puede aproximar cualquier función continua con precisión arbitraria. Sin embargo, no garantiza que la red sea eficiente ni que pueda entrenarse en la práctica."
+    },
+    {
+        "pregunta": "¿Por qué se necesitan redes profundas si una sola capa basta teóricamente?",
+        "respuesta": "Porque para igualar el poder de una red profunda, una red superficial necesitaría un número de neuronas exponencialmente grande, volviéndose intratable. La profundidad permite una extracción jerárquica de características mucho más eficiente."
+    },
+    {
+        "pregunta": "¿Qué es un Transformer?",
+        "respuesta": "Es una arquitectura de red neuronal introducida por Vaswani et al. en 2017 que elimina por completo la recurrencia y la convolución, sustituyéndolas por un mecanismo de autoatención que permite a cualquier par de tokens interactuar directamente, independientemente de su distancia."
+    },
+    {
+        "pregunta": "¿Qué estructura tiene el Transformer?",
+        "respuesta": "El Transformer sigue una arquitectura codificador-decodificador. El codificador procesa la entrada en paralelo generando representaciones continuas, y el decodificador genera la salida de forma auto-regresiva, token por token."
+    },
+    {
+        "pregunta": "¿Cuántas capas tiene el Transformer original?",
+        "respuesta": "Tanto el codificador como el decodificador están compuestos por una pila de 6 capas idénticas cada uno."
+    },
+    {
+        "pregunta": "¿Qué sub-capas tiene el codificador?",
+        "respuesta": "Cada capa del codificador tiene dos sub-capas: un mecanismo de autoatención multi-cabezal y una red feed-forward totalmente conectada. Ambas están envueltas por conexiones residuales y normalización de capa."
+    },
+    {
+        "pregunta": "¿Qué sub-capas tiene el decodificador?",
+        "respuesta": "Cada capa del decodificador tiene tres sub-capas: una autoatención enmascarada, una capa de atención cruzada que conecta con la salida del codificador, y una red feed-forward. Las tres están envueltas por conexiones residuales y normalización de capa."
+    },
+    {
+        "pregunta": "¿Qué es la autoatención?",
+        "respuesta": "Es un mecanismo que calcula una suma ponderada de los valores de una secuencia, donde los pesos se determinan por la compatibilidad entre consultas y claves. Permite que cada token atienda a todos los demás tokens de la secuencia de forma directa."
+    },
+    {
+        "pregunta": "¿Qué son las consultas, claves y valores?",
+        "respuesta": "Son tres proyecciones lineales de la entrada, obtenidas multiplicando la matriz de entrada por las matrices de pesos aprendidas W^Q, W^K y W^V. Las consultas y claves se usan para calcular los pesos de atención, y los valores contienen la información que se pondera."
+    },
+    {
+        "pregunta": "¿Cómo se calcula la atención de producto escalar escalado?",
+        "respuesta": "Se calcula como Attention(Q,K,V) = softmax(QK^T / sqrt(d_k)) V. Primero se calcula el producto escalar entre consultas y claves, se escala por la raíz de d_k, se aplica softmax para obtener los pesos, y finalmente se multiplica por los valores."
+    },
+    {
+        "pregunta": "¿Por qué se divide por la raíz de d_k en la atención?",
+        "respuesta": "Porque cuando d_k es grande, los productos escalares tienen varianza d_k, lo que empuja a la softmax a regiones saturadas donde su derivada es prácticamente nula. Dividir por la raíz de d_k normaliza la varianza a 1, manteniendo las puntuaciones en un rango donde la softmax tiene gradientes útiles."
+    },
+    {
+        "pregunta": "¿Qué es la función softmax?",
+        "respuesta": "Es una función que transforma un vector de valores reales en una distribución de probabilidad. Cada componente se convierte en un valor positivo que, junto con los demás, suma exactamente 1. Se define como softmax(z)_i = exp(z_i) / sum(exp(z_j))."
+    },
+    {
+        "pregunta": "¿Qué es la atención multi-cabezal?",
+        "respuesta": "Es un mecanismo que realiza h funciones de atención en paralelo, cada una en un subespacio diferente de menor dimensión. Las salidas se concatenan y se proyectan con una matriz W^O para obtener el resultado final. Permite capturar diferentes tipos de relaciones simultáneamente."
+    },
+    {
+        "pregunta": "¿Por qué usar múltiples cabezales en vez de uno solo?",
+        "respuesta": "Porque un único cabezal impone una sola matriz de pesos de atención para todas las dimensiones, obligando a promediar relaciones de naturaleza distinta. Con múltiples cabezales, cada uno puede especializarse en un tipo de relación diferente sin interferir con los demás."
+    },
+    {
+        "pregunta": "¿Qué es la matriz W^O en la atención multi-cabezal?",
+        "respuesta": "Es la matriz de proyección de salida que combina la información de todos los cabezales. Tras concatenar las salidas de los h cabezales, W^O mezcla sus componentes mediante una transformación lineal aprendida y devuelve el resultado a la dimensión original d_model."
+    },
+    {
+        "pregunta": "¿Qué es la atención cruzada?",
+        "respuesta": "Es una variante de la atención donde las consultas provienen del decodificador y las claves y valores provienen de la salida del codificador. Permite que cada posición del decodificador atienda a todas las posiciones de la secuencia de entrada."
+    },
+    {
+        "pregunta": "¿Qué es el enmascaramiento en el decodificador?",
+        "respuesta": "Es un mecanismo que impide que el decodificador atienda a posiciones futuras durante la generación. Se implementa sumando una matriz de máscara con valores de menos infinito en las posiciones futuras antes de aplicar la softmax, forzando que sus pesos de atención sean cero."
+    },
+    {
+        "pregunta": "¿Por qué es necesario el enmascaramiento?",
+        "respuesta": "Porque el decodificador es auto-regresivo: genera tokens uno a uno. En el momento de predecir el token en la posición i, los tokens posteriores aún no existen. La máscara simula esta restricción durante el entrenamiento, cuando toda la secuencia está disponible."
+    },
+    {
+        "pregunta": "¿Qué es la codificación posicional?",
+        "respuesta": "Es un vector que se suma al embedding de cada token para inyectar información sobre su posición en la secuencia. Es necesaria porque el mecanismo de autoatención es invariante a permutaciones y no distingue el orden de los tokens por sí solo."
+    },
+    {
+        "pregunta": "¿Por qué la autoatención necesita codificación posicional?",
+        "respuesta": "Porque la autoatención es equivariante a permutaciones: si reordenas los tokens de la entrada, la salida se reordena de la misma forma sin que las representaciones cambien. Sin codificación posicional, frases con las mismas palabras en distinto orden producirían la misma representación."
+    },
+    {
+        "pregunta": "¿Cómo se define la codificación posicional sinusoidal?",
+        "respuesta": "Se define usando funciones seno y coseno de diferentes frecuencias. Para la posición pos y la dimensión i: las dimensiones pares usan seno y las impares coseno, con frecuencias que forman una progresión geométrica desde frecuencias altas hasta muy bajas."
+    },
+    {
+        "pregunta": "¿Por qué se usan funciones seno y coseno para la codificación posicional?",
+        "respuesta": "Porque la codificación de una posición desplazada pos+k puede expresarse como una rotación de la codificación en pos, donde la rotación depende solo del desplazamiento k y no de la posición absoluta. Esto permite al modelo aprender relaciones posicionales relativas mediante transformaciones lineales."
+    },
+    {
+        "pregunta": "¿Se aprenden los valores de la codificación posicional durante el entrenamiento?",
+        "respuesta": "No, son fijos. Se calculan con las fórmulas de seno y coseno antes del entrenamiento. Esto tiene la ventaja de no introducir parámetros adicionales y de permitir al modelo generalizar a secuencias más largas que las vistas durante el entrenamiento."
+    },
+    {
+        "pregunta": "¿Qué es una conexión residual?",
+        "respuesta": "Es una modificación arquitectónica que define la salida de una capa como la suma de su entrada con la transformación aplicada: x^(l) = x^(l-1) + F(x^(l-1)). En lugar de aprender la transformación completa, la red solo aprende el residuo respecto a la entrada."
+    },
+    {
+        "pregunta": "¿Cómo resuelven las conexiones residuales el desvanecimiento del gradiente?",
+        "respuesta": "Al derivar la salida respecto a la entrada, aparece un término identidad I que proporciona un camino directo para el gradiente. Incluso si la derivada de la transformación es próxima a cero, el término I garantiza que la señal del gradiente fluya intacta hacia las capas anteriores."
+    },
+    {
+        "pregunta": "¿Por qué las conexiones residuales no son suficientes por sí solas?",
+        "respuesta": "Porque la suma residual acumula valores capa tras capa, lo que puede hacer que las activaciones crezcan sin control. Si las activaciones alcanzan valores extremos, las funciones de activación saturan y sus derivadas colapsan, anulando de nuevo el gradiente."
+    },
+    {
+        "pregunta": "¿Qué es la normalización de capa?",
+        "respuesta": "Es una técnica que reescala las activaciones en cada capa, forzando que tengan media cero y varianza unitaria. Se define como LN(v) = gamma * (v - mu) / s + beta, donde mu es la media, s la desviación típica, y gamma y beta son parámetros aprendibles."
+    },
+    {
+        "pregunta": "¿Qué diferencia hay entre Post-LN y Pre-LN?",
+        "respuesta": "En Post-LN, la normalización se aplica después de la suma residual, envolviendo todo el bloque. En Pre-LN, se aplica antes de la transformación, dentro del bloque residual. Pre-LN preserva intacto el camino directo del gradiente, mientras que Post-LN lo distorsiona."
+    },
+    {
+        "pregunta": "¿Por qué Pre-LN es mejor que Post-LN para el gradiente?",
+        "respuesta": "Porque en Pre-LN el término identidad I aparece fuera de cualquier producto con la jacobiana de la normalización, preservando el camino directo. En Post-LN, la jacobiana de la normalización multiplica a todo el producto, incluido el término I, distorsionando el atajo del gradiente."
+    },
+    {
+        "pregunta": "¿Qué garantiza el teorema de Xiong et al. sobre el Transformer Pre-LN?",
+        "respuesta": "Garantiza que la norma esperada del gradiente respecto a los parámetros de cada capa es de orden constante, independientemente de la profundidad de la red. Esto significa que todas las capas reciben una señal de error de magnitud comparable, permitiendo un aprendizaje efectivo."
+    },
+    {
+        "pregunta": "¿Qué es un modelo auto-regresivo?",
+        "respuesta": "Es un modelo que genera una secuencia elemento por elemento, donde cada predicción depende de los elementos generados previamente. El decodificador del Transformer y el modelo GPT son auto-regresivos."
+    },
+    {
+        "pregunta": "¿Qué es GPT?",
+        "respuesta": "GPT (Generative Pre-trained Transformer) es un modelo de lenguaje que utiliza exclusivamente el decodificador del Transformer. Descarta el codificador y la atención cruzada, conservando solo la autoatención enmascarada y la red feed-forward en cada bloque."
+    },
+    {
+        "pregunta": "¿Cuál es el objetivo de entrenamiento de GPT?",
+        "respuesta": "La predicción del siguiente token. El modelo minimiza la negativa de la log-verosimilitud: aprende a predecir cada token condicionado a todos los anteriores, maximizando la probabilidad de la secuencia real."
+    },
+    {
+        "pregunta": "¿Qué es el ajuste fino de un modelo?",
+        "respuesta": "Es el proceso de adaptar un modelo preentrenado a una tarea específica, reentrenándolo con un dataset más pequeño y especializado. Los pesos del preentrenamiento se usan como punto de partida, lo que requiere mucho menos datos y cómputo que entrenar desde cero."
+    },
+    {
+        "pregunta": "¿Qué diferencia hay entre preentrenamiento y ajuste fino?",
+        "respuesta": "El preentrenamiento entrena el modelo con grandes volúmenes de texto sin etiquetar para aprender representaciones generales del lenguaje. El ajuste fino lo especializa en una tarea concreta con un dataset pequeño y específico, partiendo de los pesos ya aprendidos."
+    },
+    {
+        "pregunta": "¿Qué es un token?",
+        "respuesta": "Es la unidad discreta de texto que procesa el modelo: puede ser una palabra, una subpalabra o un carácter, dependiendo del tokenizador. Es simplemente un índice en un vocabulario finito, sin estructura numérica propia."
+    },
+    {
+        "pregunta": "¿Qué es un embedding?",
+        "respuesta": "Es la representación numérica continua de un token. Es un vector de números reales que codifica las propiedades semánticas de la palabra. La tabla de embeddings se aprende durante el entrenamiento."
+    },
+    {
+        "pregunta": "¿Qué diferencia hay entre un token y un embedding?",
+        "respuesta": "El token es la palabra como símbolo discreto, un índice en el vocabulario. El embedding es su traducción a un vector numérico con el que la red puede operar. Primero se tokeniza el texto y luego cada token se convierte en su embedding."
+    },
+    {
+        "pregunta": "¿Qué ventajas tiene el Transformer frente a las RNN?",
+        "respuesta": "El Transformer permite que cualquier par de tokens interactúe directamente con un camino de longitud O(1), mientras que en las RNN la señal debe recorrer secuencialmente todos los estados intermedios. Además, el Transformer se puede paralelizar, mientras que las RNN procesan token por token."
+    },
+    {
+        "pregunta": "¿Qué ventajas tiene el Transformer frente a las CNN?",
+        "respuesta": "Las CNN necesitan apilar muchas capas para relacionar tokens lejanos, lo que provoca el desvanecimiento del gradiente. El Transformer conecta cualquier par de tokens directamente mediante la autoatención, sin necesidad de profundidad adicional."
+    },
+    {
+        "pregunta": "¿Qué es la función de pérdida?",
+        "respuesta": "Es una función que mide la discrepancia entre la predicción del modelo y el valor real. El objetivo del entrenamiento es ajustar los parámetros de la red para minimizar esta función, lo que se consigue mediante el descenso de gradiente y la retropropagación."
+    },
+    {
+        "pregunta": "¿Qué es el learning rate?",
+        "respuesta": "Es un escalar que controla la magnitud de las actualizaciones de los pesos durante el entrenamiento. Si es muy pequeño el aprendizaje es lento, y si es muy grande el algoritmo puede volverse inestable y no converger."
+    },
+    {
+        "pregunta": "¿Quién propuso la arquitectura Transformer?",
+        "respuesta": "Fue propuesta por Vaswani et al. en 2017, en el paper titulado Attention is All You Need, publicado en la conferencia NeurIPS."
+    },
+    {
+        "pregunta": "¿Por qué la softmax conmuta con las permutaciones si no es una función lineal?",
+        "respuesta": "Porque la softmax se aplica fila por fila de forma independiente. Premultiplicar por una matriz de permutación P reordena las filas y posmultiplicar por P^T reordena las columnas, pero ninguna de las dos operaciones modifica el contenido interno de cada fila. Como la softmax solo depende de los valores dentro de cada fila, da igual si primero reordenas y luego aplicas softmax, o al revés."
+    },
+    {
+        "pregunta": "El teorema de Xiong garantiza gradientes acotados en la inicialización, pero ¿qué ocurre durante el entrenamiento?",
+        "respuesta": "El teorema solo garantiza el comportamiento en la inicialización. No hay una demostración formal de que los gradientes permanezcan acotados durante todo el entrenamiento. Sin embargo, la evidencia empírica muestra que el Pre-LN Transformer converge de forma estable sin warm-up. Además, la Layer Normalization reescala las activaciones en cada paso, proporcionando una estabilización continua incluso cuando los pesos cambian."
+    },
+    {
+        "pregunta": "En los ejemplos de atención, los pesos están elegidos para ser pedagógicos. ¿Qué pasaría con pesos aleatorios?",
+        "respuesta": "Con pesos aleatorios las matrices de atención serían mucho más dispersas, sin concentrarse en tokens específicos. Es precisamente mediante el entrenamiento como las matrices W^Q, W^K y W^V aprenden a producir patrones de atención que capturen relaciones semánticas y sintácticas útiles. Los ejemplos del trabajo simulan pesos ya entrenados para ilustrar el mecanismo."
+    },
+    {
+        "pregunta": "¿Por qué funciones seno y coseno para la codificación posicional y no funciones aprendidas?",
+        "respuesta": "Vaswani et al. probaron ambas opciones con resultados prácticamente idénticos. Las funciones sinusoidales tienen dos ventajas: no introducen parámetros adicionales al modelo, y permiten generalizar a secuencias más largas que las vistas durante el entrenamiento, ya que están definidas para cualquier posición. Además, la relación entre posiciones relativas es una rotación, que el modelo puede capturar fácilmente con transformaciones lineales."
+    },
+    {
+        "pregunta": "¿Cómo se relaciona la entropía cruzada de las RNN con la función de pérdida de GPT?",
+        "respuesta": "Ambas son esencialmente la misma función: la negativa de la log-verosimilitud, sumada a lo largo de la secuencia. La diferencia es arquitectónica, no en la función objetivo. En las RNN la predicción en cada paso depende del estado oculto que acumula información secuencialmente, mientras que en GPT depende de toda la secuencia previa procesada en paralelo mediante autoatención enmascarada."
+    },
+    {
+        "pregunta": "¿Qué ocurriría si eliminamos la conexión residual y dejamos solo la Layer Normalization?",
+        "respuesta": "Sin la conexión residual se pierde el término identidad I que garantiza el camino directo del gradiente. La Layer Normalization por sí sola estabiliza la escala de las activaciones, pero no impide que el gradiente se atenúe al multiplicar secuencialmente las jacobianas de cada capa. Se volvería al problema del desvanecimiento del gradiente descrito en el Capítulo 1."
+    },
+    {
+        "pregunta": "¿Y si eliminamos la Layer Normalization y dejamos solo las conexiones residuales?",
+        "respuesta": "El camino directo del gradiente se mantiene gracias al término identidad, pero las activaciones pueden crecer sin control por la acumulación de sumas residuales. Esto puede saturar las funciones de activación, haciendo que sus derivadas colapsen y que el gradiente que fluye por el segundo sumando sea inútil. Además, la disparidad de escala entre capas dificulta la convergencia del entrenamiento."
+    },
+    {
+        "pregunta": "¿Por qué d_k y d_v pueden ser diferentes si provienen del mismo token?",
+        "respuesta": "Porque son proyecciones independientes del mismo embedding a espacios vectoriales distintos con funciones diferentes. La dimensión d_k controla el espacio donde se mide la compatibilidad entre consultas y claves, mientras que d_v controla la riqueza de la información que se mezcla en la salida. No hay ninguna restricción matemática que las vincule."
+    },
+    {
+        "pregunta": "¿La autoatención es invariante o equivariante a permutaciones?",
+        "respuesta": "Es equivariante, no invariante. Invariante significaría que la salida no cambia al permutar la entrada. Equivariante significa que la salida se permuta de la misma forma que la entrada: Attention(PX) = P · Attention(X). Las representaciones de cada token son idénticas independientemente del orden, solo cambian de posición en la matriz de salida."
+    },
+    {
+        "pregunta": "¿Por qué se necesitan múltiples cabezales si se podría usar uno solo con dimensión d_model?",
+        "respuesta": "Porque un único cabezal impone una sola matriz de pesos de atención A para todas las dimensiones del espacio de valores. Si un token necesita atender simultáneamente a relaciones de distinta naturaleza, un único conjunto de pesos se ve obligado a promediarlas. Con múltiples cabezales, cada uno puede especializarse en un tipo de relación diferente, y la proyección W^O combina la información al final."
+    },
+    {
+        "pregunta": "¿Qué papel juega la matriz W^O exactamente?",
+        "respuesta": "La matriz W^O cumple dos funciones: devolver la concatenación de los h cabezales a la dimensión d_model que espera el resto de la arquitectura, y mezclar la información de los distintos cabezales mediante una transformación lineal aprendida. Sin W^O, la información de cada cabezal viviría en dimensiones separadas sin interactuar."
+    },
+    {
+        "pregunta": "¿Cuál es la complejidad computacional de la autoatención respecto a la longitud de la secuencia?",
+        "respuesta": "La autoatención tiene complejidad O(n^2 · d) donde n es la longitud de la secuencia y d la dimensión del modelo. El factor cuadrático viene del producto QK^T, que calcula las compatibilidades entre todos los pares de tokens. Esta es la principal limitación del Transformer para secuencias muy largas."
+    },
+    {
+        "pregunta": "¿Qué diferencia hay entre la atención del codificador y la del decodificador?",
+        "respuesta": "En el codificador, cada token atiende a todos los demás sin restricción, capturando el contexto global. En el decodificador, la autoatención está enmascarada: cada token solo puede atender a los tokens en posiciones anteriores o iguales, preservando la propiedad auto-regresiva. Además, el decodificador tiene una capa adicional de atención cruzada donde las consultas vienen del decodificador y las claves y valores del codificador."
+    },
+    {
+        "pregunta": "¿Por qué GPT usa solo el decodificador y no el codificador?",
+        "respuesta": "Porque GPT es un modelo generativo auto-regresivo: su tarea es predecir el siguiente token basándose en los anteriores. Esta tarea requiere exactamente la estructura del decodificador con autoatención enmascarada. El codificador y la atención cruzada son necesarios en tareas de traducción donde hay una secuencia de entrada y otra de salida, pero en generación de texto solo hay una secuencia que se extiende token a token."
+    },
+    {
+        "pregunta": "¿Qué limitaciones tiene el modelo GPT-2 que ha utilizado para el chatbot?",
+        "respuesta": "GPT-2 es un modelo relativamente pequeño comparado con los modelos actuales. Su principal limitación es la capacidad de generar respuestas precisas y coherentes en dominios técnicos con un dataset pequeño de fine-tuning. Además, al entrenarse en CPU, el proceso es lento y limita la cantidad de épocas y experimentos que se pueden realizar. Sin embargo, para una demostración de los conceptos teóricos desarrollados en el trabajo es suficiente."
+    },
+    {
+        "pregunta": "¿Por qué el Transformer original necesita warm-up del learning rate?",
+        "respuesta": "Porque usa la disposición Post-LN, donde la normalización envuelve toda la suma residual. Como demuestran Xiong et al., en esta configuración los gradientes de las capas cercanas a la salida pueden ser muy grandes en la inicialización. Sin warm-up, estas actualizaciones excesivas desestabilizarían el entrenamiento. La variante Pre-LN elimina esta necesidad al garantizar gradientes uniformes desde la inicialización."
+    },
+    {
+        "pregunta": "¿Podría un Transformer con una sola capa funcionar bien?",
+        "respuesta": "Un Transformer con una sola capa puede capturar relaciones directas entre tokens gracias a la autoatención, pero no puede construir representaciones jerárquicas. Cada capa adicional permite componer relaciones más complejas: la primera capa podría capturar relaciones sintácticas y la segunda combinarlas para entender semántica. Es análogo al argumento de profundidad del Capítulo 1: una sola capa tiene capacidad limitada."
+    },
+    {
+        "pregunta": "¿Qué relación hay entre el Teorema de Aproximación Universal y la arquitectura del Transformer?",
+        "respuesta": "El teorema garantiza que una red con una única capa oculta suficientemente ancha puede aproximar cualquier función, pero en la práctica requeriría un número exponencial de neuronas. El Transformer resuelve esto con profundidad, pero necesita mecanismos adicionales para que esa profundidad sea entrenable. Las conexiones residuales y la normalización de capa son precisamente esos mecanismos, permitiendo redes profundas que aprenden de forma eficiente."
+    },
+    {
+        "pregunta": "¿Qué significa que las conexiones residuales facilitan aprender la identidad?",
+        "respuesta": "En una red convencional, si la transformación óptima fuera no modificar la entrada, la capa tendría que aprender una función identidad completa mediante sus pesos, lo que no es trivial. Con conexión residual, la salida es x + F(x), así que si la transformación óptima es la identidad, basta con que F aprenda a producir cero, lo cual es mucho más sencillo."
+    },
+    {
+        "pregunta": "¿Cómo se entrena un Transformer si la autoatención no tiene parámetros propios?",
+        "respuesta": "La autoatención sí tiene parámetros: las matrices de proyección W^Q, W^K, W^V y W^O. Estas matrices se aprenden durante el entrenamiento mediante retropropagación. Lo que no tiene son parámetros de recurrencia ni de convolución. El mecanismo de atención en sí es una operación fija, pero las proyecciones que determinan qué consultas, claves y valores se calculan son completamente aprendidas."
+    },
+    {
+        "pregunta": "¿Qué es el ajuste fino y por qué es más eficiente que entrenar desde cero?",
+        "respuesta": "El ajuste fino parte de un modelo que ya ha aprendido representaciones generales del lenguaje durante el preentrenamiento. Solo necesita adaptar esos conocimientos a una tarea específica, lo que requiere mucho menos datos y cómputo. Es como la diferencia entre enseñar un idioma desde cero a alguien frente a enseñarle vocabulario técnico a alguien que ya lo habla."
+    },
+    {
+        "pregunta": "¿Cuál es la diferencia fundamental entre BERT y GPT?",
+        "respuesta": "BERT usa solo el codificador del Transformer y puede ver toda la secuencia simultáneamente, lo que lo hace adecuado para tareas de comprensión como clasificación o respuesta a preguntas. GPT usa solo el decodificador con autoatención enmascarada, viendo solo los tokens anteriores, lo que lo hace adecuado para generación de texto. Son dos especializaciones complementarias de la misma arquitectura base."
+    },
+    {
+        "pregunta": "¿Cómo afecta el tamaño del dataset al ajuste fino del chatbot?",
+        "respuesta": "Un dataset pequeño puede provocar que el modelo memorice las respuestas exactas en vez de generalizar, cayendo en overfitting. Sin embargo, al partir de un modelo preentrenado que ya conoce el idioma, la cantidad de datos necesaria es mucho menor que si entrenáramos desde cero. Para un dominio acotado como el del Transformer, unas 300-500 parejas pregunta-respuesta pueden ser suficientes para obtener resultados razonables."
+    },
+    {
+        "pregunta": "¿La demostración del desvanecimiento del gradiente asume una función de activación concreta?",
+        "respuesta": "No asume una función concreta, sino una propiedad general: que la norma de la jacobiana de cada capa esté acotada por un valor omega menor que 1. Esto ocurre típicamente con funciones como la sigmoide o la tangente hiperbólica, cuyas derivadas están estrictamente acotadas por valores pequeños. Con funciones como ReLU el problema es diferente, ya que su derivada es 0 o 1, lo que puede provocar desvanecimiento por otro mecanismo."
+    },
+    {
+        "pregunta": "¿Qué relación hay entre la varianza del producto escalar y la saturación de la softmax?",
+        "respuesta": "Cuando d_k es grande, el producto escalar entre consultas y claves tiene varianza d_k, lo que produce valores de gran magnitud. Al entrar en la softmax, estos valores extremos hacen que la distribución se concentre casi toda en un solo token, con los demás recibiendo pesos prácticamente nulos. En esta región, la derivada de la softmax es casi cero, lo que dificulta el aprendizaje. Dividir por raíz de d_k normaliza la varianza a 1 y evita esta saturación."
+    },
+    {
+        "pregunta": "¿Cómo funciona el mecanismo de self-attention?",
+        "respuesta": "Calcula una suma ponderada de los valores de una secuencia, donde los pesos se determinan por la compatibilidad entre consultas y claves. Para cada token, se mide su afinidad con todos los demás mediante un producto escalar, se normalizan los resultados con softmax, y se usa esa distribución para ponderar los valores."
+    },
+    {
+        "pregunta": "¿En qué consiste la atención en el Transformer?",
+        "respuesta": "Es un mecanismo que permite a cada token de la secuencia relacionarse directamente con todos los demás, independientemente de su distancia. Calcula pesos de atención mediante el producto escalar entre consultas y claves, y los usa para combinar los valores en una representación contextualizada."
+    },
+    {
+        "pregunta": "¿Qué problema resuelve el Transformer?",
+        "respuesta": "Resuelve simultáneamente tres problemas de las arquitecturas previas: las dependencias a larga distancia (camino O(1) entre tokens), el desvanecimiento del gradiente (mediante conexiones residuales y normalización de capa), y la imposibilidad de paralelización de las RNN (toda la secuencia se procesa simultáneamente)."
+    },
+    {
+        "pregunta": "¿Cuáles son las limitaciones de las RNN para procesar lenguaje?",
+        "respuesta": "Las RNN procesan la secuencia token por token de forma estrictamente secuencial, lo que impide la paralelización. Además, la señal de error debe recorrer todos los estados intermedios para relacionar tokens lejanos, provocando el desvanecimiento del gradiente y una incapacidad para aprender dependencias a largo plazo."
+    },
+    {
+        "pregunta": "¿Por qué las CNN no son óptimas para procesar texto?",
+        "respuesta": "Porque un filtro convolucional solo procesa K elementos adyacentes a la vez. Para relacionar tokens separados por una distancia D, se necesitan apilar D/K capas, lo que reproduce el problema del desvanecimiento del gradiente. En visión artificial funcionan bien porque las características están localizadas, pero en lenguaje las dependencias semánticas pueden abarcar distancias arbitrarias."
+    },
+    {
+        "pregunta": "¿Qué es la retropropagación a través del tiempo?",
+        "respuesta": "Es la adaptación del algoritmo de retropropagación para redes recurrentes. Consiste en desplegar la red a lo largo de los instantes de tiempo y aplicar la regla de la cadena desde la salida final hasta los estados iniciales. El problema es que al recorrer muchos instantes, el gradiente se desvanece por la multiplicación sucesiva de jacobianas."
+    },
+    {
+        "pregunta": "¿Qué es el campo receptivo en una CNN?",
+        "respuesta": "Es la región del espacio de entrada que influye en el cálculo de una activación en una capa dada. Tras apilar M capas convolucionales con filtro de tamaño K, el campo receptivo crece linealmente como R = M(K-1) + 1. Para capturar dependencias a distancia D, se necesita que R sea al menos D."
+    },
+    {
+        "pregunta": "Explica el mecanismo de atención de forma sencilla.",
+        "respuesta": "Imagina que estás leyendo una frase y necesitas entender una palabra ambigua. Tu cerebro mira automáticamente las palabras más relevantes del contexto para desambiguarla. La autoatención hace exactamente eso: para cada palabra, calcula cuánto debe fijarse en cada una de las demás, y construye una nueva representación que incorpora la información contextual relevante."
+    },
+    {
+        "pregunta": "¿Cómo se relacionan las consultas, claves y valores con una base de datos?",
+        "respuesta": "La analogía es directa: la consulta es lo que buscas, las claves son los índices contra los que comparas tu búsqueda, y los valores son la información asociada a cada índice. La diferencia es que en la autoatención la búsqueda no es exacta sino por compatibilidad, y el resultado es una mezcla ponderada de todos los valores en lugar de devolver uno solo."
+    },
+    {
+        "pregunta": "¿Qué significa que el Transformer procesa en paralelo?",
+        "respuesta": "Significa que todas las posiciones de la secuencia de entrada se procesan simultáneamente, no una detrás de otra. La autoatención calcula las relaciones entre todos los pares de tokens de una sola vez mediante multiplicación matricial, lo que permite aprovechar el hardware de computación paralela como las GPUs."
+    },
+    {
+        "pregunta": "¿Cómo se obtienen las matrices Q, K y V?",
+        "respuesta": "Se obtienen multiplicando la matriz de entrada X por tres matrices de pesos aprendidas: Q = XW^Q, K = XW^K y V = XW^V. Cada una proyecta la entrada a un espacio diferente: las consultas y claves al espacio donde se mide la compatibilidad, y los valores al espacio de la información que se mezcla."
+    },
+    {
+        "pregunta": "¿Por qué se usa el producto escalar como función de compatibilidad?",
+        "respuesta": "Porque es computacionalmente muy eficiente: calcular QK^T para todos los pares de tokens se reduce a una única multiplicación matricial. Vaswani et al. mencionan que existen otras funciones de compatibilidad, como la aditiva, pero el producto escalar es más rápido en la práctica y produce resultados comparables."
+    },
+    {
+        "pregunta": "¿Qué ocurre cuando la softmax se satura?",
+        "respuesta": "Cuando la softmax recibe valores de gran magnitud, la distribución resultante se concentra casi toda en un solo elemento, con los demás recibiendo pesos prácticamente nulos. En esta zona, la derivada de la softmax es casi cero, lo que dificulta el aprendizaje porque los gradientes son demasiado pequeños para actualizar los pesos de forma efectiva."
+    },
+    {
+        "pregunta": "¿Qué dimensiones tiene la matriz de atención?",
+        "respuesta": "La matriz de atención A = softmax(QK^T / sqrt(d_k)) tiene dimensión n x n, donde n es el número de tokens de la secuencia. Cada elemento A_ij representa cuánta atención presta el token i al token j. Cada fila suma 1 por la normalización de la softmax."
+    },
+    {
+        "pregunta": "¿Qué significa que la atención produce representaciones contextualizadas?",
+        "respuesta": "Significa que el vector de salida de cada token ya no representa la palabra de forma aislada, sino que incorpora información de las palabras relevantes de su contexto. El mismo verbo 'escribir' tendrá representaciones diferentes en 'escribe un email' y en 'escribe un poema', porque la atención incorpora información distinta del complemento en cada caso."
+    },
+    {
+        "pregunta": "¿Cuántos parámetros tiene la atención multi-cabezal?",
+        "respuesta": "Las matrices de proyección son W_i^Q, W_i^K y W_i^V para cada cabezal i, más la matriz de salida W^O. Con h cabezales, d_model dimensión del modelo y d_k = d_v = d_model/h, el total de parámetros es h · 3 · d_model · d_k + d_model · d_model = 4 · d_model^2. Es equivalente al coste de un único cabezal con la dimensión completa."
+    },
+    {
+        "pregunta": "¿Qué es la auto-regresividad?",
+        "respuesta": "Es la propiedad de un modelo que genera una secuencia elemento por elemento, donde cada predicción depende exclusivamente de los elementos generados previamente. En el Transformer, el decodificador es auto-regresivo: predice el token en la posición i condicionado a los tokens en las posiciones 1 hasta i-1."
+    },
+    {
+        "pregunta": "¿Por qué no se usa la máscara en el codificador?",
+        "respuesta": "Porque el codificador recibe la secuencia de entrada completa desde el principio y no genera nada. Su función es construir representaciones ricas de la entrada, para lo cual cada token debe poder atender a todos los demás sin restricción. La máscara solo es necesaria en el decodificador, que genera tokens uno a uno y no debe ver el futuro."
+    },
+    {
+        "pregunta": "¿Qué pasa con la máscara cuando el valor es menos infinito?",
+        "respuesta": "Al sumar menos infinito a la puntuación de una posición antes de la softmax, la exponencial de ese valor es e^(-infinito) = 0. Por tanto, tras la normalización de la softmax, esa posición recibe un peso de atención exactamente nulo, impidiendo que cualquier información de esa posición fluya hacia el token que realiza la consulta."
+    },
+    {
+        "pregunta": "¿Se puede aplicar la atención a datos que no sean texto?",
+        "respuesta": "Sí, el mecanismo de atención es agnóstico al tipo de datos. Se ha aplicado con éxito a imágenes (Vision Transformer), audio, proteínas, grafos y series temporales. Lo único que se necesita es una representación vectorial de los elementos de la secuencia y una noción de posición."
+    },
+    {
+        "pregunta": "¿Qué es el Vision Transformer?",
+        "respuesta": "Es una adaptación del Transformer para el procesamiento de imágenes. En lugar de tokens de texto, divide la imagen en parches cuadrados que se tratan como una secuencia de tokens. Cada parche se proyecta a un embedding y se procesa con el mismo mecanismo de autoatención del Transformer original."
+    },
+    {
+        "pregunta": "¿Qué diferencia hay entre la atención cruzada y la autoatención?",
+        "respuesta": "En la autoatención, las consultas, claves y valores provienen de la misma secuencia: cada token se relaciona con los demás tokens de su propia secuencia. En la atención cruzada, las consultas provienen de una secuencia (el decodificador) y las claves y valores de otra (la salida del codificador), conectando dos representaciones diferentes."
+    },
+    {
+        "pregunta": "¿Cómo afecta el número de cabezales al rendimiento?",
+        "respuesta": "En el Transformer original con d_model = 512 se usan h = 8 cabezales de dimensión 64 cada uno. Vaswani et al. experimentaron con diferentes valores de h y encontraron que tanto muy pocos como demasiados cabezales degradan el rendimiento. Muy pocos limitan la capacidad de capturar relaciones diversas, y demasiados reducen excesivamente la dimensión de cada cabezal."
+    },
+    {
+        "pregunta": "¿Qué son las dimensiones pares e impares en la codificación posicional?",
+        "respuesta": "En la codificación posicional sinusoidal, las dimensiones pares usan la función seno y las impares la función coseno, ambas con la misma frecuencia para cada par consecutivo. Cada par (2i, 2i+1) forma un sistema seno-coseno completo que permite representar los desplazamientos posicionales como rotaciones."
+    },
+    {
+        "pregunta": "¿Qué es una progresión geométrica de frecuencias?",
+        "respuesta": "En la codificación posicional, las frecuencias omega_i = 1/10000^(2i/d_model) decrecen exponencialmente con el índice i. Las primeras dimensiones tienen frecuencias altas y oscilan rápidamente, distinguiendo posiciones cercanas. Las últimas tienen frecuencias muy bajas y oscilan lentamente, distinguiendo posiciones lejanas."
+    },
+    {
+        "pregunta": "¿Qué significa que la codificación posicional generaliza a secuencias más largas?",
+        "respuesta": "Como los valores de PE se calculan con fórmulas de seno y coseno que están definidas para cualquier valor natural de pos, el modelo puede generar codificaciones posicionales para posiciones que nunca vio durante el entrenamiento. Con codificaciones aprendidas, la posición máxima estaría limitada al tamaño del conjunto de entrenamiento."
+    },
+    {
+        "pregunta": "¿Por qué la rotación no depende de la posición absoluta?",
+        "respuesta": "Porque la matriz de rotación que transforma PE_pos en PE_{pos+k} solo contiene funciones de omega_i · k, no de omega_i · pos. Esto significa que la relación entre las posiciones 5 y 8 es la misma que entre las posiciones 100 y 103: ambas corresponden a un desplazamiento k = 3 y producen la misma rotación."
+    },
+    {
+        "pregunta": "¿Qué es una matriz de permutación?",
+        "respuesta": "Es una matriz cuadrada binaria donde cada fila y cada columna contiene exactamente un 1 y el resto son ceros. Al multiplicarla por una matriz de datos, reordena sus filas. Es ortogonal, con la propiedad de que su traspuesta es su inversa: P^T P = I."
+    },
+    {
+        "pregunta": "¿Cómo se conecta la proposición de equivariancia con la necesidad de codificación posicional?",
+        "respuesta": "La proposición demuestra que la autoatención produce la misma representación para cada token independientemente del orden de la secuencia. Esto significa que sin información posicional adicional, el modelo no puede distinguir frases con las mismas palabras en diferente orden. La codificación posicional rompe esta simetría al inyectar información del orden en la entrada."
+    },
+    {
+        "pregunta": "¿Qué es la jacobiana en el contexto de redes neuronales?",
+        "respuesta": "Es la matriz de derivadas parciales de la salida de una capa respecto a su entrada. Si la capa transforma un vector de dimensión n en uno de dimensión m, la jacobiana es una matriz m x n. Su norma determina cómo se atenúa o amplifica el gradiente al retropropagarse a través de esa capa."
+    },
+    {
+        "pregunta": "¿Qué significa que el gradiente fluya por un camino directo?",
+        "respuesta": "Significa que existe un término en la expresión del gradiente que no depende de ninguna derivada intermedia de las transformaciones de las capas. En las conexiones residuales, este término es la identidad I, que permite que el gradiente de la capa posterior se transmita íntegramente a la capa anterior sin pasar por ninguna función que pueda atenuarlo."
+    },
+    {
+        "pregunta": "¿Qué es el producto de Hadamard?",
+        "respuesta": "Es la multiplicación componente a componente de dos vectores o matrices de la misma dimensión. Si a = (a_1, ..., a_n) y b = (b_1, ..., b_n), su producto de Hadamard es a ⊙ b = (a_1·b_1, ..., a_n·b_n). En la normalización de capa, se usa para aplicar el vector de escala gamma componente a componente."
+    },
+    {
+        "pregunta": "¿Qué es el radio espectral de una matriz?",
+        "respuesta": "Es el máximo de los valores absolutos de sus valores propios. En el contexto del desvanecimiento del gradiente, si el radio espectral de las jacobianas de cada capa es menor que 1, el producto iterativo de estas matrices converge a cero, provocando que el gradiente se desvanezca."
+    },
+    {
+        "pregunta": "¿Por qué se dice que la normalización de capa estandariza y no normaliza?",
+        "respuesta": "Porque la operación de restar la media y dividir por la desviación típica produce un vector con media cero y varianza unitaria, pero no cambia la forma de la distribución. Es una estandarización estadística, no una transformación a distribución normal. Los datos estandarizados pueden seguir siendo asimétricos o tener cualquier otra forma."
+    },
+    {
+        "pregunta": "¿Para qué sirven los parámetros gamma y beta de la normalización de capa?",
+        "respuesta": "Para recuperar capacidad expresiva. Después de estandarizar las activaciones a media cero y varianza unitaria, los parámetros aprendibles gamma y beta permiten que la red reescale y desplace la distribución si la representación óptima requiere una escala o media diferentes. Sin ellos, la normalización restringiría demasiado lo que la red puede representar."
+    },
+    {
+        "pregunta": "¿Qué es el epsilon en la normalización de capa?",
+        "respuesta": "Es una constante positiva muy pequeña que se suma a la varianza antes de calcular la raíz cuadrada. Su único propósito es evitar la división por cero en el caso extremo de que todas las componentes del vector tengan el mismo valor, lo que produciría varianza nula."
+    },
+    {
+        "pregunta": "¿Qué es la log-verosimilitud?",
+        "respuesta": "Es el logaritmo de la probabilidad de observar los datos dado el modelo. En GPT, la log-verosimilitud de una secuencia es la suma de los logaritmos de las probabilidades de cada token condicionado a los anteriores. Maximizar la log-verosimilitud es equivalente a minimizar su negativa, que es la función de pérdida que se usa en el entrenamiento."
+    },
+    {
+        "pregunta": "¿Qué es un corpus de texto?",
+        "respuesta": "Es una colección masiva de texto usada para entrenar modelos de lenguaje. Puede incluir libros, artículos, páginas web y otros documentos. GPT-2 español fue preentrenado sobre un amplio corpus en castellano, lo que le permite conocer la gramática, vocabulario y estructura del idioma antes del ajuste fino."
+    },
+    {
+        "pregunta": "¿Qué significa que un modelo tiene 117 millones de parámetros?",
+        "respuesta": "Significa que el modelo contiene 117 millones de valores numéricos ajustables, incluyendo todos los pesos de las matrices de atención, las redes feed-forward, los embeddings y las normalizaciones de capa. Estos parámetros se optimizan durante el entrenamiento para minimizar la función de pérdida."
+    },
+    {
+        "pregunta": "¿Cuál es la diferencia entre inferencia y entrenamiento?",
+        "respuesta": "El entrenamiento es la fase donde el modelo ajusta sus pesos para minimizar la función de pérdida, usando retropropagación y descenso de gradiente. La inferencia es la fase de uso: el modelo recibe una entrada y produce una predicción usando los pesos ya aprendidos, sin modificarlos. El entrenamiento es costoso; la inferencia es rápida."
+    },
+    {
+        "pregunta": "¿Por qué se necesita una función de pérdida?",
+        "respuesta": "Porque el aprendizaje se formula como un problema de optimización: encontrar los parámetros que mejor ajustan el modelo a los datos. La función de pérdida cuantifica numéricamente la discrepancia entre las predicciones del modelo y los valores reales, proporcionando una señal que el algoritmo de optimización usa para actualizar los pesos en la dirección correcta."
+    },
+    {
+        "pregunta": "¿Qué relación tiene el descenso de gradiente con la retropropagación?",
+        "respuesta": "Son dos pasos complementarios. La retropropagación calcula los gradientes de la función de pérdida respecto a cada parámetro de la red, aplicando la regla de la cadena desde la salida hacia la entrada. El descenso de gradiente usa esos gradientes para actualizar los parámetros: cada peso se mueve en la dirección opuesta al gradiente, proporcionalmente al learning rate."
+    },
+    {
+        "pregunta": "¿Qué es una red feed-forward en el contexto del Transformer?",
+        "respuesta": "Es una red neuronal totalmente conectada con dos capas lineales y una activación no lineal entre ellas, que se aplica de forma independiente a cada posición de la secuencia. En cada bloque del Transformer se usa después de la capa de atención para transformar las representaciones contextualizadas."
+    },
+    {
+        "pregunta": "¿Qué es el aprendizaje supervisado?",
+        "respuesta": "Es un paradigma de aprendizaje donde el modelo se entrena con pares de entrada y salida deseada. El objetivo es aprender una función que minimice el error entre la predicción y la etiqueta real. Se utiliza en tareas de clasificación, donde las etiquetas son discretas, y en regresión, donde los valores son continuos."
+    },
+    {
+        "pregunta": "¿Qué es el aprendizaje no supervisado?",
+        "respuesta": "Es un paradigma donde el algoritmo recibe datos sin etiquetar y debe encontrar estructuras subyacentes o patrones por sí mismo. Es común en tareas de clustering, donde se agrupan datos similares, y en reducción de dimensionalidad, donde se simplifica la representación de los datos preservando su estructura."
+    },
+    {
+        "pregunta": "¿Qué es el aprendizaje por refuerzo?",
+        "respuesta": "Es un paradigma donde un agente aprende a tomar decisiones secuenciales interactuando con un entorno. No recibe etiquetas explícitas sino señales de recompensa o castigo en función de sus acciones, buscando maximizar la recompensa acumulada a largo plazo."
+    },
+    {
+        "pregunta": "¿Qué es la generalización en Machine Learning?",
+        "respuesta": "Es la capacidad de un modelo para realizar predicciones precisas sobre datos nuevos que no ha visto durante el entrenamiento. Un modelo que generaliza bien ha aprendido las reglas subyacentes de los datos, no simplemente memorizado los ejemplos de entrenamiento."
+    },
+    {
+        "pregunta": "¿Cómo se actualiza el estado oculto en una RNN?",
+        "respuesta": "En cada instante t, el nuevo estado oculto h_t se calcula combinando la entrada actual x_t con el estado oculto anterior h_{t-1} mediante la fórmula h_t = sigma(W_xh · x_t + W_hh · h_{t-1} + b_h). Las matrices de pesos W_xh y W_hh son compartidas a lo largo de toda la secuencia."
+    },
+    {
+        "pregunta": "¿Qué es la operación de convolución en una CNN?",
+        "respuesta": "Es una operación que aplica un filtro o kernel de tamaño K sobre la señal de entrada, calculando una suma ponderada de K elementos adyacentes en cada posición. En el procesamiento de texto, la convolución 1D desliza el filtro a lo largo de la secuencia de palabras para detectar patrones locales."
+    },
+    {
+        "pregunta": "¿Qué paper introdujo la arquitectura Transformer?",
+        "respuesta": "El paper Attention is All You Need, publicado por Vaswani et al. en 2017 en la conferencia NeurIPS. Su título refleja la idea central: que el mecanismo de atención por sí solo, sin recurrencia ni convolución, es suficiente para procesar secuencias de forma efectiva."
+    },
+    {
+        "pregunta": "¿Quién propuso las conexiones residuales?",
+        "respuesta": "He et al. en 2016, en el paper Deep Residual Learning for Image Recognition, publicado en CVPR. Aunque se propusieron originalmente para visión artificial, el Transformer adopta exactamente el mismo mecanismo para facilitar el flujo de gradientes en sus bloques de atención y feed-forward."
+    },
+    {
+        "pregunta": "¿Quién propuso la normalización de capa?",
+        "respuesta": "Ba, Kiros y Hinton en 2016, en el paper Layer Normalization. A diferencia de la normalización por lotes, que normaliza sobre el batch de entrenamiento, la normalización de capa normaliza sobre las componentes de cada vector individualmente, lo que la hace independiente del tamaño del batch."
+    },
+    {
+        "pregunta": "¿Qué demostró Cybenko en 1989?",
+        "respuesta": "Demostró el Teorema de Aproximación Universal: que una red neuronal con una única capa oculta suficientemente ancha puede aproximar cualquier función continua con precisión arbitraria. La demostración utiliza herramientas de Análisis Funcional, en particular el Teorema de Representación de Riesz y el Teorema de Hahn-Banach."
+    },
+    {
+        "pregunta": "¿Qué es GPT-2?",
+        "respuesta": "Es el sucesor de GPT, desarrollado por OpenAI en 2019. Tiene 1.5 mil millones de parámetros, significativamente más que el GPT original, y fue preentrenado con un corpus mucho mayor. Demostró que un mismo modelo auto-regresivo puede realizar múltiples tareas de lenguaje sin necesidad de ajuste fino específico para cada una."
+    },
+    {
+        "pregunta": "¿Qué es Hugging Face Transformers?",
+        "respuesta": "Es una biblioteca de Python que proporciona acceso a miles de modelos preentrenados de procesamiento del lenguaje natural. Permite descargar, usar y ajustar finamente modelos como GPT-2 con pocas líneas de código, facilitando la implementación de aplicaciones basadas en Transformers."
+    },
+    {
+        "pregunta": "¿Por qué se eligió GPT-2 español para el chatbot?",
+        "respuesta": "Por tres razones: está preentrenado en español, lo que le da conocimiento del idioma sin necesidad de entrenarlo desde cero; su tamaño es suficientemente pequeño para hacer ajuste fino en CPU; y su arquitectura decoder-only es la adecuada para generación de texto, que es la tarea que necesita un chatbot."
+    },
+    {
+        "pregunta": "¿Qué es la tokenización?",
+        "respuesta": "Es el proceso de convertir texto en una secuencia de tokens, las unidades discretas que el modelo procesa. Dependiendo del tokenizador, los tokens pueden ser palabras completas, subpalabras o caracteres individuales. GPT-2 usa Byte Pair Encoding, que divide las palabras en subpalabras frecuentes."
+    },
+    {
+        "pregunta": "¿Qué es Byte Pair Encoding?",
+        "respuesta": "Es un algoritmo de tokenización que empieza con caracteres individuales y va fusionando iterativamente los pares más frecuentes en el corpus. El resultado es un vocabulario de subpalabras que equilibra eficiencia con la capacidad de representar cualquier palabra, incluso las no vistas durante el entrenamiento."
+    },
+    {
+        "pregunta": "Explica la autoatención de forma sencilla.",
+        "respuesta": "La autoatención permite que cada palabra de una frase mire a todas las demás para entender su contexto. Para cada palabra, calcula cuánta atención debe prestar a las demás, y usa esos pesos para construir una nueva representación que incorpora la información relevante del contexto."
+    },
+    {
+        "pregunta": "¿Cómo decide el Transformer a qué palabras prestar atención?",
+        "respuesta": "Mediante el producto escalar entre las consultas y las claves. Cada token genera una consulta que se compara con las claves de todos los demás tokens. Cuanto mayor sea el producto escalar entre una consulta y una clave, mayor será el peso de atención que recibe el valor asociado a esa clave."
+    },
+    {
+        "pregunta": "¿La autoatención es lo mismo que la atención?",
+        "respuesta": "La autoatención es un caso particular de la atención donde las consultas, claves y valores provienen de la misma secuencia. En la atención cruzada, las consultas vienen de una secuencia y las claves y valores de otra diferente, como ocurre en la conexión entre el codificador y el decodificador."
+    },
+    {
+        "pregunta": "¿Qué calcula exactamente la fórmula QK^T?",
+        "respuesta": "Calcula una matriz de puntuaciones de afinidad de dimensión n x n, donde n es el número de tokens. El elemento en la posición (i,j) indica cuánta compatibilidad hay entre la consulta del token i y la clave del token j. Una puntuación alta significa que el token j es relevante para entender el token i."
+    },
+    {
+        "pregunta": "¿Qué papel juega la softmax en la atención?",
+        "respuesta": "Convierte las puntuaciones brutas de compatibilidad en una distribución de probabilidad. Tras aplicar softmax fila por fila, los pesos de atención de cada token son todos positivos y suman 1, lo que permite interpretarlos como porcentajes de atención."
+    },
+    {
+        "pregunta": "¿Qué es el producto escalar escalado?",
+        "respuesta": "Es el mecanismo de atención que usa el Transformer. Se calcula como softmax(QK^T / sqrt(d_k)) V. El producto escalar QK^T mide la compatibilidad, se escala dividiéndolo por la raíz de d_k para evitar la saturación de la softmax, y finalmente se multiplica por V para obtener la salida ponderada."
+    },
+    {
+        "pregunta": "¿Para qué sirve dividir por raíz de d_k?",
+        "respuesta": "Para mantener la varianza de las puntuaciones de atención en un rango adecuado. Sin escalar, cuando d_k es grande los productos escalares tienen varianza d_k, lo que produce valores extremos que saturan la softmax. Al dividir por raíz de d_k, la varianza se normaliza a 1."
+    },
+    {
+        "pregunta": "¿Qué pasa si no escalamos el producto escalar?",
+        "respuesta": "La softmax se satura: casi todo el peso de atención se concentra en un solo token y los demás reciben peso prácticamente nulo. En esta zona, los gradientes de la softmax son extremadamente pequeños, lo que dificulta el aprendizaje."
+    },
+    {
+        "pregunta": "¿Qué es una representación contextualizada?",
+        "respuesta": "Es el vector de salida de un token tras pasar por la capa de atención. A diferencia del embedding original que representa la palabra de forma aislada, la representación contextualizada incorpora información de las palabras relevantes de su contexto."
+    },
+    {
+        "pregunta": "¿Cómo funciona la conexión residual en el Transformer?",
+        "respuesta": "En cada sub-capa, la salida se calcula como la suma de la entrada original más la transformación aplicada: x^(l) = x^(l-1) + F(x^(l-1)). La red solo necesita aprender el residuo F, no la transformación completa. Esto proporciona un camino directo para el gradiente."
+    },
+    {
+        "pregunta": "¿Por qué las conexiones residuales evitan el desvanecimiento del gradiente?",
+        "respuesta": "Porque al derivar la salida respecto a la entrada aparece un término identidad I más la derivada de F. El término I garantiza que el gradiente fluya directamente de una capa a la anterior sin atenuarse, independientemente de lo que haga la transformación F."
+    },
+    {
+        "pregunta": "¿Qué es el residuo en una conexión residual?",
+        "respuesta": "Es la diferencia entre la salida y la entrada de la capa: F(x) = x^(l) - x^(l-1). En lugar de aprender la transformación completa, la capa solo aprende esta diferencia."
+    },
+    {
+        "pregunta": "¿Qué es el camino directo del gradiente?",
+        "respuesta": "Es el término identidad I que aparece en la jacobiana de una capa con conexión residual. Permite que el gradiente se transmita íntegramente de una capa a la anterior sin pasar por ninguna transformación que pueda atenuarlo."
+    },
+    {
+        "pregunta": "¿Qué hace la normalización de capa en el Transformer?",
+        "respuesta": "Reescala las activaciones de cada sub-capa para que tengan media cero y varianza unitaria. Esto evita que las activaciones crezcan sin control por la acumulación de sumas residuales."
+    },
+    {
+        "pregunta": "¿Cómo funciona la Layer Normalization?",
+        "respuesta": "Toma un vector de activaciones, le resta su media y lo divide por su desviación típica, produciendo un vector estandarizado con media cero y varianza uno. Después aplica dos parámetros aprendibles, gamma y beta, que permiten al modelo reescalar la distribución si es necesario."
+    },
+    {
+        "pregunta": "¿Cuál es la diferencia entre Post-LN y Pre-LN?",
+        "respuesta": "En Post-LN la normalización se aplica después de la suma residual: LN(x + F(x)). En Pre-LN se aplica antes de la transformación: x + F(LN(x)). Pre-LN preserva intacto el camino directo del gradiente, mientras que Post-LN lo distorsiona."
+    },
+    {
+        "pregunta": "¿Por qué Pre-LN es mejor para el entrenamiento?",
+        "respuesta": "Porque preserva el término identidad I en la jacobiana sin distorsionarlo. En Post-LN, la jacobiana de la normalización multiplica a todo el producto incluido el término I. En Pre-LN, el término I queda fuera de la normalización, garantizando el camino directo. Además, Pre-LN no necesita warm-up."
+    },
+    {
+        "pregunta": "¿Qué es el warm-up del learning rate?",
+        "respuesta": "Es una fase inicial del entrenamiento donde el learning rate crece progresivamente desde un valor muy pequeño hasta su valor objetivo. Es necesario en el Transformer original con Post-LN porque los gradientes de las capas cercanas a la salida son muy grandes en la inicialización."
+    },
+    {
+        "pregunta": "Explica GPT en pocas palabras.",
+        "respuesta": "GPT es un modelo de lenguaje que usa solo el decodificador del Transformer. Es auto-regresivo: predice el siguiente token basándose en los anteriores. Se preentrena con grandes cantidades de texto y después se puede ajustar finamente para tareas específicas."
+    },
+    {
+        "pregunta": "¿Cómo genera texto GPT?",
+        "respuesta": "Token por token, de forma auto-regresiva. En cada paso recibe todos los tokens generados hasta el momento, calcula las probabilidades del siguiente token sobre todo el vocabulario, y selecciona uno. Ese token se añade a la secuencia y el proceso se repite."
+    },
+    {
+        "pregunta": "¿Qué arquitectura usa GPT?",
+        "respuesta": "Usa exclusivamente el decodificador del Transformer, descartando el codificador y la atención cruzada. Cada bloque contiene una capa de autoatención enmascarada y una red feed-forward, ambas envueltas por conexiones residuales y normalización de capa."
+    },
+    {
+        "pregunta": "¿Por qué GPT usa autoatención enmascarada?",
+        "respuesta": "Para preservar la propiedad auto-regresiva: al predecir el token en la posición i, el modelo solo debe ver los tokens anteriores. La máscara pone menos infinito en las posiciones futuras antes de la softmax, forzando que sus pesos de atención sean cero."
+    },
+    {
+        "pregunta": "¿Qué es el preentrenamiento de GPT?",
+        "respuesta": "Es la fase donde el modelo se entrena con grandes volúmenes de texto sin etiquetar, aprendiendo a predecir el siguiente token. Durante esta fase GPT adquiere conocimiento general del idioma. Es la fase más costosa computacionalmente."
+    },
+    {
+        "pregunta": "¿Qué es el ajuste fino?",
+        "respuesta": "Es la fase donde un modelo preentrenado se especializa en una tarea concreta usando un dataset pequeño y específico. Los pesos del preentrenamiento sirven como punto de partida y el modelo solo necesita adaptarlos ligeramente."
+    },
+    {
+        "pregunta": "¿Cuál es la función de pérdida de GPT?",
+        "respuesta": "Es la negativa de la log-verosimilitud, que mide cuánto se equivoca el modelo al predecir cada token. El objetivo del entrenamiento es minimizar esta función ajustando los parámetros del modelo."
+    },
+    {
+        "pregunta": "¿Qué es la predicción del siguiente token?",
+        "respuesta": "Es el objetivo de entrenamiento de GPT. Dada una secuencia de tokens, el modelo aprende a predecir cuál es el siguiente token más probable."
+    },
+    {
+        "pregunta": "¿Cómo resuelve el Transformer las dependencias a larga distancia?",
+        "respuesta": "Mediante la autoatención, que permite a cualquier par de tokens interactuar directamente independientemente de su distancia. El camino entre dos tokens cualesquiera es de longitud O(1), frente a O(D) en las RNN."
+    },
+    {
+        "pregunta": "¿Por qué las RNN sufren amnesia?",
+        "respuesta": "Porque el gradiente se desvanece al retropropagarse a través de muchos instantes temporales. El producto iterativo de las jacobianas tiende a cero conforme crece la distancia temporal, impidiendo que la red propague la señal de error hacia el pasado."
+    },
+    {
+        "pregunta": "¿Qué son los pesos de atención?",
+        "respuesta": "Son los valores que determinan cuánto contribuye cada token a la representación de otro token. Se calculan aplicando softmax a las puntuaciones de compatibilidad entre consultas y claves. Son positivos y suman 1 para cada token."
+    },
+    {
+        "pregunta": "¿Qué diferencia hay entre el codificador y el decodificador?",
+        "respuesta": "El codificador procesa toda la secuencia en paralelo sin restricciones. El decodificador genera la salida token por token de forma auto-regresiva, usando una máscara que impide ver tokens futuros. Además, el decodificador tiene una capa extra de atención cruzada."
+    },
+    {
+        "pregunta": "¿Qué es la codificación posicional y para qué sirve?",
+        "respuesta": "Es un vector que se suma al embedding de cada token para informar al modelo sobre su posición en la secuencia. Es necesaria porque la autoatención es equivariante a permutaciones y no distingue el orden de los tokens por sí sola."
+    },
+    {
+        "pregunta": "¿Qué es la equivariancia a permutaciones?",
+        "respuesta": "Es la propiedad de que permutar los tokens de la entrada produce la misma permutación en la salida, sin alterar las representaciones. Implica que sin codificación posicional el modelo no distingue el orden."
+    },
+    {
+        "pregunta": "¿Por qué el desplazamiento posicional es una rotación?",
+        "respuesta": "Porque al aplicar las fórmulas de suma de ángulos, la codificación de pos+k se expresa como una matriz de rotación multiplicada por la codificación de pos. El ángulo depende solo del desplazamiento k, no de la posición absoluta."
+    },
+    {
+        "pregunta": "¿Cuál es la complejidad computacional del Transformer?",
+        "respuesta": "La autoatención tiene complejidad O(n^2 · d) donde n es la longitud de la secuencia y d la dimensión del modelo. El factor cuadrático viene del cálculo de QK^T que compara todos los pares de tokens."
+    },
+    {
+        "pregunta": "¿Qué es un LLM?",
+        "respuesta": "Un Large Language Model o Gran Modelo de Lenguaje es un modelo basado en Transformers preentrenado con enormes cantidades de texto. GPT es un ejemplo. Estos modelos aprenden representaciones generales del lenguaje que les permiten realizar múltiples tareas."
+    },
+    {
+        "pregunta": "¿Qué modelo base usa el chatbot?",
+        "respuesta": "DeepESP/gpt2-spanish, una variante de GPT-2 preentrenada en castellano con aproximadamente 124 millones de parámetros y arquitectura decoder-only."
+    },
+    {
+        "pregunta": "¿Qué es la entropía cruzada?",
+        "respuesta": "Es una función de pérdida que mide la divergencia entre la distribución de probabilidad real y la predicha por el modelo. Penaliza fuertemente cuando el modelo asigna baja probabilidad al token correcto."
+    },
+    {
+        "pregunta": "¿Qué es ReLU?",
+        "respuesta": "Es una función de activación definida como ReLU(x) = max(0, x). Su derivada es 1 para valores positivos y 0 para negativos, lo que mitiga parcialmente el desvanecimiento del gradiente. Se usa en las redes feed-forward del Transformer."
+    },
+    {
+        "pregunta": "¿Qué es una época de entrenamiento?",
+        "respuesta": "Es una pasada completa por todo el dataset de entrenamiento. Entrenar durante varias épocas significa que el modelo ve cada ejemplo múltiples veces, refinando progresivamente sus pesos."
+    },
+    {
+        "pregunta": "¿Qué es el batch size?",
+        "respuesta": "Es el número de ejemplos que se procesan juntos antes de actualizar los pesos. Un batch más grande estabiliza el entrenamiento pero requiere más memoria."
+    },
+    {
+        "pregunta": "¿Qué es el gradient clipping?",
+        "respuesta": "Es una técnica que limita la norma del gradiente a un valor máximo antes de actualizar los pesos. Previene la explosión del gradiente que puede desestabilizar el entrenamiento."
+    },
+    {
+        "pregunta": "¿Cuál es la contribución principal de este TFG?",
+        "respuesta": "La formalización matemática de la arquitectura Transformer y la demostración de que resuelve el desvanecimiento del gradiente. Se demuestran proposiciones sobre conexiones residuales, equivariancia de la autoatención, codificación posicional como rotación, y la diferencia entre Pre-LN y Post-LN."
+    },
+    {
+        "pregunta": "¿Cuál es el hilo conductor del TFG?",
+        "respuesta": "El problema del desvanecimiento del gradiente. Se introduce en el Capítulo 1, se muestra cómo afecta a RNN y CNN, y se demuestra cómo el Transformer lo resuelve mediante conexiones residuales, normalización de capa y la disposición Pre-LN."
+    },
+    {
+        "pregunta": "¿Qué es la arquitectura decoder-only?",
+        "respuesta": "Es una variante del Transformer que usa solo el decodificador, descartando el codificador y la atención cruzada. Es la arquitectura de modelos generativos como GPT, diseñados para predecir el siguiente token de forma auto-regresiva."
+    },
+    {
+        "pregunta": "¿Por qué se concatenan los cabezales antes de W^O?",
+        "respuesta": "Porque cada cabezal produce una salida de dimensión reducida d_v = d_model/h. Al concatenar los h cabezales se recupera la dimensión original d_model. La matriz W^O transforma esta concatenación mezclando la información de todos los cabezales."
+    },
+    {
+        "pregunta": "¿Puede el Transformer procesar secuencias de cualquier longitud?",
+        "respuesta": "En principio sí, gracias a la codificación posicional sinusoidal definida para cualquier posición. En la práctica, la complejidad cuadrática O(n^2) limita la longitud máxima procesable."
+    },
+    {
+        "pregunta": "¿Qué es O(1) en el contexto del Transformer?",
+        "respuesta": "Significa que la longitud del camino entre dos tokens cualesquiera es constante, independientemente de su distancia en la secuencia. Cualquier token puede atender directamente a cualquier otro en un solo paso de la autoatención."
+    },
+    {
+        "pregunta": "¿Qué es un vector de embedding?",
+        "respuesta": "Es la representación numérica de un token en un espacio vectorial continuo de dimensión d_model. Codifica las propiedades semánticas de la palabra y se aprende durante el entrenamiento."
+    },
+    {
+        "pregunta": "¿Qué aplicaciones tiene el Transformer?",
+        "respuesta": "Procesamiento del lenguaje natural, visión artificial con Vision Transformer, procesamiento de audio, análisis de proteínas, y muchas más. Su versatilidad se debe a que el mecanismo de atención puede aplicarse a cualquier dato representado como secuencia de vectores."
+    },
+    {
+        "pregunta": "¿Qué diferencia hay entre un token y una palabra?",
+        "respuesta": "No siempre coinciden. Un tokenizador como BPE puede dividir una palabra poco frecuente en varios subtokens. Las palabras muy frecuentes suelen ser un solo token. Esto permite al modelo manejar un vocabulario abierto."
+    },
+    {
+        "pregunta": "¿Qué es la matriz de atención?",
+        "respuesta": "Es la matriz A = softmax(QK^T / sqrt(d_k)) de dimensión n x n. Cada elemento A_ij indica cuánta atención presta el token i al token j. Cada fila suma 1 por la normalización de la softmax."
+    },
+    {
+        "pregunta": "¿Qué es el procesamiento del lenguaje natural?",
+        "respuesta": "Es la disciplina que combina la inteligencia artificial y la lingüística para dotar a las máquinas de la capacidad de leer, entender e interpretar el lenguaje humano. Abarca tareas como traducción, generación de texto y respuesta a preguntas."
+    },
+    {
+        "pregunta": "¿Cómo se obtienen las consultas en la autoatención?",
+        "respuesta": "Multiplicando la matriz de entrada X por la matriz de pesos aprendida W^Q. Si X tiene dimensión n x d_model y W^Q tiene dimensión d_model x d_k, la matriz de consultas Q = XW^Q tiene dimensión n x d_k, con una consulta por cada token."
+    },
+    {
+        "pregunta": "¿Cómo se obtienen las claves en la autoatención?",
+        "respuesta": "Multiplicando la matriz de entrada X por la matriz de pesos aprendida W^K. La matriz de claves K = XW^K tiene dimensión n x d_k. Cada fila es la clave de un token, que será comparada con las consultas de los demás tokens."
+    },
+    {
+        "pregunta": "¿Cómo se obtienen los valores en la autoatención?",
+        "respuesta": "Multiplicando la matriz de entrada X por la matriz de pesos aprendida W^V. La matriz de valores V = XW^V tiene dimensión n x d_v. Contiene la información semántica que se mezcla según los pesos de atención."
+    },
+    {
+        "pregunta": "¿Qué ocurre si todos los pesos de atención son iguales?",
+        "respuesta": "Cada token recibiría la misma contribución de todos los demás, produciendo una media uniforme de los valores. La representación resultante no capturaría ninguna relación específica entre tokens, sería como no tener atención en absoluto."
+    },
+    {
+        "pregunta": "¿Qué es la función de compatibilidad en la atención?",
+        "respuesta": "Es la función que mide cuán relevante es una clave para una consulta dada. En el Transformer se usa el producto escalar como función de compatibilidad: score(q, k) = q · k. Existen otras opciones como la atención aditiva, pero el producto escalar es más eficiente computacionalmente."
+    },
+    {
+        "pregunta": "¿Qué dimensiones tiene la salida de la atención?",
+        "respuesta": "La salida tiene dimensión n x d_v, donde n es el número de tokens y d_v la dimensión de los valores. Cada fila es la representación contextualizada de un token, construida como suma ponderada de los vectores de valor."
+    },
+    {
+        "pregunta": "¿Las matrices W^Q, W^K y W^V se aprenden durante el entrenamiento?",
+        "respuesta": "Sí, son parámetros del modelo que se optimizan mediante retropropagación y descenso de gradiente para minimizar la función de pérdida. Determinan cómo se proyecta cada token a los espacios de consultas, claves y valores."
+    },
+    {
+        "pregunta": "¿Por qué d_k debe ser igual para consultas y claves?",
+        "respuesta": "Porque se necesita calcular el producto escalar QK^T, y para que este producto esté definido, las columnas de Q y K deben tener la misma dimensión. Si tuvieran dimensiones distintas, la multiplicación matricial no sería posible."
+    },
+    {
+        "pregunta": "¿Por qué d_v puede ser diferente de d_k?",
+        "respuesta": "Porque los valores no participan en el cálculo de las puntuaciones de compatibilidad. La matriz V se multiplica después por los pesos de atención ya calculados. Su dimensión d_v solo determina la riqueza de la información que se mezcla y la dimensión de la salida."
+    },
+    {
+        "pregunta": "¿Qué es el desvanecimiento del gradiente en las redes profundas?",
+        "respuesta": "Es el fenómeno donde la norma del gradiente decrece exponencialmente al retropropagarse a través de muchas capas. Se produce porque al aplicar la regla de la cadena, se multiplican secuencialmente matrices jacobianas cuya norma es menor que 1, haciendo que el producto converja a cero."
+    },
+    {
+        "pregunta": "¿Qué es la explosión del gradiente?",
+        "respuesta": "Es el fenómeno opuesto al desvanecimiento: la norma del gradiente crece exponencialmente al retropropagarse. Ocurre cuando la norma de las jacobianas es mayor que 1. Produce actualizaciones de pesos excesivamente grandes que desestabilizan el entrenamiento, pudiendo generar valores NaN."
+    },
+    {
+        "pregunta": "¿Cómo se previene la explosión del gradiente?",
+        "respuesta": "Mediante gradient clipping, que limita la norma del gradiente a un valor máximo antes de actualizar los pesos. También mediante learning rates pequeños, warm-up, y normalización de capa que mantiene las activaciones en rangos controlados."
+    },
+    {
+        "pregunta": "¿Qué relación hay entre la profundidad de una red y el vanishing gradient?",
+        "respuesta": "La profundidad agrava el problema exponencialmente. Si la norma de cada jacobiana está acotada por omega < 1, el producto de M jacobianas está acotado por omega^(M-1), que tiende a cero conforme M crece. Cuantas más capas, más se atenúa el gradiente en las primeras capas."
+    },
+    {
+        "pregunta": "¿Qué son las capas ocultas de una red neuronal?",
+        "respuesta": "Son las capas intermedias entre la capa de entrada y la de salida. Cada capa oculta aplica una transformación lineal seguida de una función de activación no lineal. La profundidad de la red se mide por el número de capas ocultas."
+    },
+    {
+        "pregunta": "¿Qué es la regla de la cadena?",
+        "respuesta": "Es la regla del cálculo que permite calcular la derivada de una composición de funciones. Si y = f(g(x)), entonces dy/dx = df/dg · dg/dx. En redes neuronales, la retropropagación aplica esta regla repetidamente desde la salida hasta la entrada para calcular los gradientes."
+    },
+    {
+        "pregunta": "¿Qué es la función de activación y para qué sirve?",
+        "respuesta": "Es una función no lineal que se aplica tras la combinación lineal de cada capa. Sin ella, una red de múltiples capas sería equivalente a una sola transformación lineal. La no linealidad permite a la red aprender representaciones complejas."
+    },
+    {
+        "pregunta": "¿Qué es la tangente hiperbólica como función de activación?",
+        "respuesta": "Es una función definida como tanh(z) = (e^z - e^(-z))/(e^z + e^(-z)), que mapea valores reales al rango (-1, 1). Como la sigmoide, su derivada está acotada y puede causar desvanecimiento del gradiente en redes profundas."
+    },
+    {
+        "pregunta": "¿Qué es una red neuronal feed-forward?",
+        "respuesta": "Es una red donde la información fluye solo hacia adelante, de la entrada a la salida, sin conexiones cíclicas. Cada capa recibe la salida de la anterior y produce la entrada de la siguiente. Se diferencia de las redes recurrentes, donde hay conexiones hacia atrás."
+    },
+    {
+        "pregunta": "¿Qué diferencia hay entre una RNN y una red feed-forward?",
+        "respuesta": "La red feed-forward asume independencia entre las entradas y procesa cada una por separado. La RNN mantiene un estado oculto que se actualiza secuencialmente, permitiendo procesar datos que dependen de un contexto previo, como las secuencias de texto."
+    },
+    {
+        "pregunta": "¿Qué es el estado oculto de una RNN?",
+        "respuesta": "Es un vector que actúa como la memoria interna de la red. Se actualiza en cada instante temporal combinando la entrada actual con el estado anterior: h_t = sigma(W_xh · x_t + W_hh · h_{t-1} + b). Almacena información acumulada de la secuencia procesada hasta ese punto."
+    },
+    {
+        "pregunta": "¿Qué son los pesos compartidos en una RNN?",
+        "respuesta": "Son las matrices de pesos W_xh, W_hh y W_hy que se usan en todos los instantes temporales de la secuencia. A diferencia de las redes feed-forward donde cada capa tiene sus propios pesos, en las RNN los mismos pesos se aplican iterativamente, lo que permite procesar secuencias de longitud variable."
+    },
+    {
+        "pregunta": "¿Qué es un kernel o filtro en una CNN?",
+        "respuesta": "Es una unidad parametrizable de tamaño K que se desliza sobre la entrada extrayendo características locales. Cada filtro calcula una suma ponderada de K elementos adyacentes. Los pesos del filtro se aprenden durante el entrenamiento."
+    },
+    {
+        "pregunta": "¿Qué es el Max-Pooling?",
+        "respuesta": "Es una operación que reduce la dimensión de los mapas de activación tomando el valor máximo dentro de una ventana. Resume la información en lo más importante y disminuye la complejidad computacional de las capas posteriores."
+    },
+    {
+        "pregunta": "¿Por qué las CNN son buenas para imágenes pero no para texto?",
+        "respuesta": "Porque en las imágenes las características relevantes están localizadas espacialmente y un kernel pequeño puede capturarlas. En el texto, las dependencias semánticas pueden abarcar distancias arbitrarias, requiriendo una profundidad extrema de capas convolucionales que provoca el desvanecimiento del gradiente."
+    },
+    {
+        "pregunta": "¿Qué es el campo receptivo de una CNN?",
+        "respuesta": "Es el número de elementos de la entrada que influyen en el cálculo de una activación. Tras M capas con filtro de tamaño K, el campo receptivo crece linealmente como R = M(K-1) + 1. Para capturar dependencias a distancia D se necesita R >= D."
+    },
+    {
+        "pregunta": "¿Cómo se actualiza el learning rate durante el entrenamiento?",
+        "respuesta": "Puede seguir distintas estrategias. El warm-up aumenta progresivamente el learning rate al inicio. Después puede mantenerse constante, decaer linealmente, o seguir un schedule coseno. La elección afecta a la convergencia y estabilidad del entrenamiento."
+    },
+    {
+        "pregunta": "¿Se pueden combinar BERT y GPT?",
+        "respuesta": "En principio son enfoques complementarios. BERT usa el codificador y es bueno para comprensión. GPT usa el decodificador y es bueno para generación. Existen modelos que combinan ambas ideas, como el Transformer completo encoder-decoder usado en traducción."
+    },
+    {
+        "pregunta": "¿Por qué no se usa una red feed-forward normal para traducción?",
+        "respuesta": "Porque las redes feed-forward asumen independencia entre entradas y no pueden procesar secuencias de longitud variable. No tienen mecanismo para capturar el orden de las palabras ni las relaciones entre tokens distantes, que son esenciales en la traducción."
+    },
+    {
+        "pregunta": "¿Qué significa que la atención es O(n^2)?",
+        "respuesta": "Que el número de operaciones crece cuadráticamente con la longitud de la secuencia n. Esto es porque QK^T calcula las compatibilidades entre todos los pares de tokens, y hay n^2 pares. Para secuencias de 1000 tokens, se calculan un millón de compatibilidades."
+    },
+    {
+        "pregunta": "¿Qué es la matriz jacobiana?",
+        "respuesta": "Es la matriz de todas las derivadas parciales de una función vectorial. Si la función transforma un vector de dimensión n en uno de dimensión m, la jacobiana es una matriz m x n. En redes neuronales, describe cómo la salida de una capa cambia al perturbar su entrada."
+    },
+    {
+        "pregunta": "¿Qué es la norma de una matriz?",
+        "respuesta": "Es una medida del tamaño o magnitud de una matriz. En el contexto del desvanecimiento del gradiente, si la norma de la jacobiana de cada capa es menor que 1, el producto de muchas jacobianas converge a cero, atenuando el gradiente."
+    },
+    {
+        "pregunta": "¿Qué es una distribución de probabilidad discreta?",
+        "respuesta": "Es una asignación de probabilidades a un conjunto finito de categorías, donde cada probabilidad es positiva y todas suman 1. La softmax transforma cualquier vector de puntuaciones reales en una distribución de probabilidad discreta."
+    },
+    {
+        "pregunta": "¿Qué es el weight decay en el entrenamiento?",
+        "respuesta": "Es una técnica de regularización que añade una penalización proporcional a la magnitud de los pesos en la función de pérdida. Esto incentiva que los pesos se mantengan pequeños, reduciendo el riesgo de overfitting."
+    },
+    {
+        "pregunta": "¿Qué son los parámetros aprendibles gamma y beta de LayerNorm?",
+        "respuesta": "Son vectores que permiten a la red reescalar y desplazar las activaciones después de estandarizarlas. Gamma controla la escala y beta el desplazamiento. Sin ellos, la normalización restringiría demasiado la capacidad expresiva del modelo."
+    },
+    {
+        "pregunta": "¿Qué es epsilon en la Layer Normalization?",
+        "respuesta": "Es una constante positiva muy pequeña que se suma a la varianza antes de calcular la raíz cuadrada. Su único propósito es evitar la división por cero cuando todas las componentes del vector tienen el mismo valor."
+    },
+    {
+        "pregunta": "¿Qué problema resolvió el paper Attention is All You Need?",
+        "respuesta": "Demostró que un modelo basado exclusivamente en atención, sin recurrencia ni convolución, podía alcanzar y superar el rendimiento de las arquitecturas anteriores en tareas de procesamiento de secuencias. Resolvió simultáneamente el problema de las dependencias a larga distancia, el desvanecimiento del gradiente y la falta de paralelización."
+    },
+    {
+        "pregunta": "¿Qué significa decoder-only en el contexto de GPT?",
+        "respuesta": "Significa que el modelo usa exclusivamente la parte del decodificador del Transformer original, sin codificador ni atención cruzada. Solo tiene autoatención enmascarada y redes feed-forward, lo que lo hace adecuado para generación de texto auto-regresiva."
+    },
+    {
+        "pregunta": "¿Cómo se evalúa la calidad de un modelo de lenguaje?",
+        "respuesta": "Mediante la perplejidad, que es la exponencial de la entropía cruzada promedio. Una perplejidad más baja indica que el modelo asigna mayor probabilidad a los tokens correctos. También se evalúa cualitativamente examinando las respuestas generadas."
+    },
+    {
+        "pregunta": "¿Qué es la perplejidad?",
+        "respuesta": "Es una métrica que mide cuán bien un modelo predice una secuencia de texto. Se calcula como la exponencial de la pérdida promedio por token. Una perplejidad de 10 significa que el modelo está tan indeciso como si eligiera entre 10 opciones equiprobables en cada paso."
+    },
+    {
+        "pregunta": "¿Por qué se usa float32 en vez de float16 durante el entrenamiento?",
+        "respuesta": "Float32 tiene mayor precisión numérica, lo que evita problemas de inestabilidad como valores NaN durante el entrenamiento. Float16 es más rápido y usa menos memoria, por lo que se usa cuando hay GPU disponible con soporte para precisión mixta, pero puede causar problemas en CPU."
+    },
+    {
+        "pregunta": "¿Qué relación tiene el Transformer con los chatbots actuales?",
+        "respuesta": "Los chatbots actuales como ChatGPT están basados en modelos GPT, que usan la arquitectura decoder-only del Transformer. El mecanismo de autoatención les permite mantener coherencia contextual a lo largo de conversaciones largas, y el preentrenamiento les da conocimiento general del lenguaje."
+    },
+    {
+        "pregunta": "¿Qué diferencia hay entre GPT-2 y GPT-4?",
+        "respuesta": "GPT-2 tiene 1.5 mil millones de parámetros y fue entrenado con un corpus relativamente pequeño. Los modelos posteriores como GPT-3 y GPT-4 son órdenes de magnitud más grandes y están entrenados con mucho más datos, lo que les da mayor capacidad de razonamiento y coherencia."
+    },
+    {
+        "pregunta": "¿Qué es el Transformer en una frase?",
+        "respuesta": "Es una arquitectura de red neuronal que procesa secuencias usando autoatención en lugar de recurrencia o convolución, resolviendo el problema del desvanecimiento del gradiente y permitiendo el procesamiento en paralelo."
+    },
+    {
+        "pregunta": "Define la autoatención.",
+        "respuesta": "La autoatención es una función que, para cada token, calcula cuánta atención debe prestar a todos los demás tokens de la secuencia. Lo hace comparando su consulta con las claves de los demás, normalizando con softmax, y usando los pesos resultantes para ponderar los valores."
+    },
+    {
+        "pregunta": "¿En qué consiste el self-attention?",
+        "respuesta": "Consiste en calcular una suma ponderada de los valores de todos los tokens de la secuencia. Los pesos de esa suma se determinan por la compatibilidad entre la consulta de cada token y las claves de los demás, medida mediante producto escalar y normalizada con softmax."
+    },
+    {
+        "pregunta": "¿Cómo funciona el self-attention paso a paso?",
+        "respuesta": "Primero, cada token se proyecta en tres vectores: consulta, clave y valor. Segundo, se calcula el producto escalar de cada consulta con todas las claves. Tercero, se escala dividiendo por raíz de d_k. Cuarto, se aplica softmax para obtener los pesos. Quinto, se multiplican los pesos por los valores para obtener la salida."
+    },
+    {
+        "pregunta": "¿Qué hace la autoatención en el Transformer?",
+        "respuesta": "Permite que cada token atienda a todos los demás de forma directa, independientemente de la distancia que los separe. Construye representaciones contextualizadas donde cada palabra incorpora información relevante del resto de la secuencia."
+    },
+    {
+        "pregunta": "¿Por qué es importante la autoatención?",
+        "respuesta": "Porque resuelve el problema de las dependencias a larga distancia. A diferencia de las RNN, donde la señal debe recorrer todos los estados intermedios, la autoatención conecta cualquier par de tokens directamente en un solo paso, con un camino de longitud O(1)."
+    },
+    {
+        "pregunta": "¿Qué produce la autoatención como salida?",
+        "respuesta": "Produce una representación contextualizada de cada token. Es un vector que ya no representa la palabra de forma aislada, sino que incorpora información de las palabras relevantes de su contexto. Se calcula como una suma ponderada de los vectores de valor."
+    },
+    {
+        "pregunta": "¿Cuál es la fórmula de la autoatención?",
+        "respuesta": "Attention(Q, K, V) = softmax(QK^T / sqrt(d_k)) V. Se calcula el producto escalar entre consultas y claves, se escala por raíz de d_k, se aplica softmax para obtener los pesos de atención, y se multiplican por los valores."
+    },
+    {
+        "pregunta": "¿Qué relación tiene la autoatención con las consultas, claves y valores?",
+        "respuesta": "La autoatención usa tres proyecciones del mismo token: la consulta representa lo que el token busca, la clave representa lo que el token ofrece para ser encontrado, y el valor contiene la información semántica que se mezcla. Las consultas se comparan con las claves para determinar cuánto de cada valor se incorpora."
+    },
+    {
+        "pregunta": "¿La autoatención es una operación lineal?",
+        "respuesta": "No completamente. Contiene operaciones lineales como las proyecciones Q, K, V y la multiplicación por los pesos, pero la función softmax que normaliza las puntuaciones es no lineal. Esta no linealidad es lo que permite al modelo concentrar la atención en los tokens más relevantes."
+    },
+    {
+        "pregunta": "Explica qué es una conexión residual.",
+        "respuesta": "Es una modificación arquitectónica donde la salida de una capa se define como la suma de su entrada más la transformación aprendida: x^(l) = x^(l-1) + F(x^(l-1)). La red solo aprende el residuo F, no la transformación completa. Esto proporciona un camino directo para el gradiente durante la retropropagación."
+    },
+    {
+        "pregunta": "Define las conexiones residuales.",
+        "respuesta": "Son conexiones que suman la entrada de una capa directamente a su salida, saltándose la transformación intermedia. La fórmula es x^(l) = x^(l-1) + F(x^(l-1)). Fueron propuestas por He et al. en 2016 y son fundamentales en el Transformer para evitar el desvanecimiento del gradiente."
+    },
+    {
+        "pregunta": "¿Para qué sirven las conexiones residuales?",
+        "respuesta": "Sirven para evitar el desvanecimiento del gradiente en redes profundas. Al sumar la entrada directamente a la salida, crean un camino directo para el gradiente representado por el término identidad I en la jacobiana. Este término garantiza que la señal de error fluya intacta hacia las primeras capas."
+    },
+    {
+        "pregunta": "¿Cómo funcionan las conexiones residuales en el Transformer?",
+        "respuesta": "En cada sub-capa del Transformer, la salida se calcula sumando la entrada original con el resultado de la transformación: x^(l) = x^(l-1) + F(x^(l-1)), donde F es la sub-capa de atención o la red feed-forward. Esto permite que el gradiente fluya directamente sin atenuarse."
+    },
+    {
+        "pregunta": "¿Qué es el residuo que aprende la red?",
+        "respuesta": "Es la diferencia entre la salida deseada y la entrada: F(x) = x^(l) - x^(l-1). En vez de aprender toda la transformación, la capa solo aprende esta diferencia. Si lo óptimo fuera no modificar la entrada, basta con que F aprenda a producir cero, lo cual es mucho más sencillo."
+    },
+    {
+        "pregunta": "¿Cómo evitan las conexiones residuales el vanishing gradient?",
+        "respuesta": "Al derivar x^(l) = x^(l-1) + F(x^(l-1)) respecto a la entrada, la jacobiana es I + dF/dx. El término I es la identidad, que transmite el gradiente sin atenuación. Incluso si la derivada de F es próxima a cero, el gradiente fluye intacto por el camino directo que proporciona I."
+    },
+    {
+        "pregunta": "¿Qué es el término identidad en las conexiones residuales?",
+        "respuesta": "Es la matriz I que aparece en la jacobiana de una capa residual. Representa un camino directo desde la pérdida hasta la entrada que no depende de ninguna derivada intermedia. Es el mecanismo que impide que el gradiente se desvanezca al retropropagarse a través de muchas capas."
+    },
+    {
+        "pregunta": "¿Dónde se aplican las conexiones residuales en el Transformer?",
+        "respuesta": "Alrededor de cada sub-capa, tanto en el codificador como en el decodificador. En el codificador envuelven la autoatención y la red feed-forward. En el decodificador envuelven la autoatención enmascarada, la atención cruzada y la red feed-forward."
+    },
+    {
+        "pregunta": "¿Qué pasaría sin conexiones residuales en el Transformer?",
+        "respuesta": "El gradiente se desvanecería al retropropagarse a través de las 6 capas del codificador y las 6 del decodificador. Las primeras capas dejarían de aprender porque sus actualizaciones de pesos serían prácticamente nulas, como se demuestra con la cota omega^(M-1) que tiende a cero."
+    },
+    {
+        "pregunta": "¿Las conexiones residuales añaden parámetros al modelo?",
+        "respuesta": "No. La conexión residual es simplemente una suma: x + F(x). No introduce ningún parámetro nuevo. Los únicos parámetros son los de la transformación F, que ya existían. Esta simplicidad es una de sus grandes ventajas."
+    },
+    {
+        "pregunta": "¿Cuál es la diferencia entre una capa normal y una capa con conexión residual?",
+        "respuesta": "En una capa normal, la salida es directamente F(x). En una capa con conexión residual, la salida es x + F(x). La diferencia es que la segunda mantiene un camino directo para el gradiente mediante el término identidad I, mientras que en la primera el gradiente debe pasar obligatoriamente a través de F."
+    },
+    {
+        "pregunta": "¿Qué es la autoatención del Transformer?",
+        "respuesta": "Es el mecanismo central del Transformer que permite a cada token de la secuencia atender directamente a todos los demás. Calcula Attention(Q,K,V) = softmax(QK^T/sqrt(d_k))V, donde Q, K y V son proyecciones lineales de la entrada."
+    },
+    {
+        "pregunta": "¿Por qué la autoatención es mejor que la recurrencia?",
+        "respuesta": "Porque conecta cualquier par de tokens directamente con camino O(1), mientras que la recurrencia requiere O(D) pasos para tokens separados por distancia D. Además, la autoatención se puede paralelizar completamente, mientras que la recurrencia es secuencial."
+    },
+    {
+        "pregunta": "¿Qué es el mecanismo de atención en redes neuronales?",
+        "respuesta": "Es un mecanismo que calcula una suma ponderada de vectores de valor, donde los pesos se determinan por la compatibilidad entre una consulta y un conjunto de claves. Permite al modelo enfocarse en las partes más relevantes de la entrada para cada predicción."
+    },
+    {
+        "pregunta": "Resume la conexión residual en una frase.",
+        "respuesta": "La conexión residual suma la entrada directamente a la salida de la capa, creando un atajo que permite al gradiente fluir sin atenuarse a través de redes profundas."
+    },
+    {
+        "pregunta": "Resume la autoatención en una frase.",
+        "respuesta": "La autoatención permite a cada token de una secuencia calcular una representación que incorpora información de todos los demás tokens, ponderada por su relevancia contextual."
+    },
+    {
+        "pregunta": "¿Por qué el Transformer usa suma para la conexión residual y no otra operación?",
+        "respuesta": "Porque la suma es la operación más simple que preserva un camino directo para el gradiente: al derivar x + F(x), el término identidad I aparece directamente. Otras operaciones como la multiplicación o la concatenación no producirían este camino directo, y complicarían el flujo del gradiente."
+    },
+    {
+        "pregunta": "¿Se podría usar otra función en vez de softmax para los pesos de atención?",
+        "respuesta": "Sí, existen alternativas como la atención lineal o el sparsemax. Sin embargo, la softmax garantiza que los pesos sean positivos y sumen 1, formando una distribución de probabilidad. Además, la exponencial amplifica las diferencias entre puntuaciones, lo que permite al modelo focalizar la atención en los tokens más relevantes."
+    },
+    {
+        "pregunta": "¿Por qué se elige d_k = d_v = d_model/h y no otros valores?",
+        "respuesta": "Para que el coste computacional total de los h cabezales sea equivalente al de un único cabezal con dimensión d_model. Si se eligieran dimensiones mayores, el coste se multiplicaría; si fueran menores, se perdería capacidad expresiva sin ganar eficiencia."
+    },
+    {
+        "pregunta": "¿Qué ocurriría si la codificación posicional se multiplicara por el embedding en vez de sumarse?",
+        "respuesta": "La multiplicación componente a componente cambiaría la magnitud del embedding de forma no uniforme, pudiendo anular o distorsionar la información semántica. La suma preserva ambas informaciones de forma aditiva: el modelo recibe tanto el significado de la palabra como su posición, y aprende a separarlas mediante las proyecciones Q, K, V."
+    },
+    {
+        "pregunta": "¿La demostración del vanishing gradient asume que omega es constante en todas las capas?",
+        "respuesta": "Sí, es una simplificación. En la práctica, cada capa puede tener una norma jacobiana diferente. Sin embargo, la cota se mantiene válida tomando omega como el máximo de las normas de todas las capas. Si ese máximo es menor que 1, el producto sigue convergiendo a cero."
+    },
+    {
+        "pregunta": "¿Se podría entrenar el Transformer sin Layer Normalization, solo con conexiones residuales?",
+        "respuesta": "Es posible pero difícil en la práctica. Las conexiones residuales garantizan el camino directo del gradiente, pero sin normalización las activaciones pueden crecer descontroladamente por la acumulación de sumas, saturando las funciones de activación. El entrenamiento se vuelve inestable y requiere un ajuste muy fino del learning rate."
+    },
+    {
+        "pregunta": "¿Por qué la función sigmoide causa más vanishing gradient que ReLU?",
+        "respuesta": "Porque la derivada de la sigmoide está acotada por 0.25 como máximo y tiende a cero para valores extremos. La derivada de ReLU es exactamente 1 para valores positivos, lo que no atenúa el gradiente. Sin embargo, ReLU tiene el problema de las neuronas muertas: si la entrada es negativa, la derivada es 0 permanentemente."
+    },
+    {
+        "pregunta": "¿Por qué 6 capas y no más o menos en el Transformer original?",
+        "respuesta": "Vaswani et al. experimentaron con diferentes profundidades y encontraron que 6 capas ofrecían un buen equilibrio entre capacidad del modelo y coste computacional para la tarea de traducción. Más capas mejoraban ligeramente el rendimiento pero con un coste mucho mayor. Modelos posteriores como GPT-3 usan 96 capas."
+    },
+    {
+        "pregunta": "¿Qué pasaría si no usáramos la máscara en el decodificador durante el entrenamiento?",
+        "respuesta": "El modelo haría trampa: al predecir el token en la posición i, podría ver los tokens futuros que aún no debería conocer. Aprendería a copiar en vez de a predecir, y en inferencia, cuando esos tokens futuros no existen, fallaría completamente. La máscara simula las condiciones de inferencia durante el entrenamiento."
+    },
+    {
+        "pregunta": "¿Por qué la equivariancia y no la invariancia es un problema para la autoatención?",
+        "respuesta": "La equivariancia significa que las representaciones de cada token son las mismas independientemente del orden, solo cambian de posición en la matriz. Esto implica que el modelo no puede distinguir el orden de las palabras, que en lenguaje natural es fundamental para el significado. La codificación posicional rompe esta simetría."
+    },
+    {
+        "pregunta": "¿Se podría usar la misma matriz para consultas y claves?",
+        "respuesta": "Sí, se puede, y se llama atención simétrica. Sin embargo, usar matrices diferentes permite que la consulta y la clave capturen aspectos distintos del mismo token: la consulta representa lo que el token busca y la clave lo que ofrece. Esta asimetría da más flexibilidad al modelo."
+    },
+    {
+        "pregunta": "¿La codificación posicional sinusoidal tiene alguna desventaja?",
+        "respuesta": "Su principal limitación es que codifica posiciones absolutas, no relativas directamente. Aunque la propiedad de rotación permite aprender relaciones relativas, modelos más recientes como RoPE codifican directamente la posición relativa en el producto escalar de la atención, lo que resulta más eficiente."
+    },
+    {
+        "pregunta": "¿Qué relación hay entre la softmax y la distribución de Boltzmann?",
+        "respuesta": "La softmax es matemáticamente idéntica a la distribución de Boltzmann en física estadística, donde cada estado tiene una energía y la probabilidad es proporcional a la exponencial negativa de la energía. El factor 1/sqrt(d_k) actúa como una temperatura que controla cuánto se concentra la distribución."
+    },
+    {
+        "pregunta": "¿Qué pasa si el learning rate es demasiado alto?",
+        "respuesta": "Las actualizaciones de pesos son demasiado grandes, lo que puede hacer que el modelo salte por encima del mínimo de la función de pérdida y oscile sin converger. En casos extremos, los pesos crecen sin control y producen valores NaN, como ocurrió en las primeras pruebas de este chatbot."
+    },
+    {
+        "pregunta": "¿Qué pasa si el learning rate es demasiado bajo?",
+        "respuesta": "El aprendizaje se vuelve extremadamente lento porque las actualizaciones de pesos son minúsculas. El modelo puede quedarse atrapado en mínimos locales de la función de pérdida y no converger al óptimo en un tiempo razonable."
+    },
+    {
+        "pregunta": "¿Por qué se usa el producto escalar y no la distancia euclidiana para medir compatibilidad?",
+        "respuesta": "El producto escalar mide la similitud de dirección entre dos vectores, no su distancia. Dos vectores que apuntan en la misma dirección tienen un producto escalar alto aunque tengan magnitudes diferentes. Además, el producto escalar se implementa como una multiplicación matricial QK^T, que es extremadamente eficiente en hardware moderno."
+    },
+    {
+        "pregunta": "¿Cómo sabe el modelo qué información poner en Q, K y V?",
+        "respuesta": "Lo aprende durante el entrenamiento. Las matrices W^Q, W^K y W^V se inicializan aleatoriamente y se ajustan mediante retropropagación para minimizar la función de pérdida. El modelo descubre automáticamente qué proyecciones producen patrones de atención útiles para la tarea."
+    },
+    {
+        "pregunta": "¿Por qué el Transformer necesita tanto preentrenamiento?",
+        "respuesta": "Porque tiene millones de parámetros que necesitan datos suficientes para encontrar buenas representaciones del lenguaje. El preentrenamiento con grandes corpus permite aprender gramática, semántica y conocimiento general. Sin él, el modelo empezaría de cero y necesitaría enormes cantidades de datos específicos para cada tarea."
+    },
+    {
+        "pregunta": "¿El ajuste fino modifica todos los parámetros del modelo?",
+        "respuesta": "En el ajuste fino estándar sí, todos los parámetros se actualizan. Sin embargo, existen técnicas como LoRA que solo modifican un subconjunto pequeño de parámetros, reduciendo el coste computacional. Para este chatbot se usa ajuste fino completo dado el tamaño reducido de GPT-2."
+    },
+    {
+        "pregunta": "¿Por qué el loss del chatbot no baja de cierto punto?",
+        "respuesta": "Porque el modelo tiene una capacidad limitada (124 millones de parámetros) y el dataset es pequeño. El loss se estabiliza cuando el modelo ha extraído toda la información que puede del dataset. Para bajar más se necesitaría un modelo más grande, más datos, o ambos."
+    },
+    {
+        "pregunta": "¿Qué diferencia hay entre memorizar y generalizar en el contexto del chatbot?",
+        "respuesta": "Memorizar significa reproducir exactamente las respuestas del dataset de entrenamiento. Generalizar significa responder correctamente a preguntas formuladas de formas que no ha visto. Un buen chatbot generaliza: si aprendió qué es la autoatención con una formulación, debería responder aunque la pregunta se haga con palabras diferentes."
+    },
+    {
+        "pregunta": "¿Por qué se eligió GPT-2 y no un modelo más grande?",
+        "respuesta": "Por las restricciones computacionales del proyecto. GPT-2 tiene 124 millones de parámetros, lo que permite realizar ajuste fino en Colab con GPU gratuita en minutos. Modelos más grandes requerirían GPUs más potentes y más tiempo de entrenamiento, sin garantía de mejora significativa para un dataset tan pequeño."
+    },
+    {
+        "pregunta": "¿Cómo se relaciona la proposición de saturación con el factor de escala?",
+        "respuesta": "La proposición demuestra que el producto escalar entre consultas y claves tiene varianza d_k. Como la desviación típica es raíz de d_k, dividir por ella normaliza la varianza a 1. Esto mantiene las puntuaciones en el rango donde la softmax tiene gradientes significativos, evitando la saturación que la proposición identifica."
+    },
+    {
+        "pregunta": "¿La conexión residual del Transformer es idéntica a la de ResNet?",
+        "respuesta": "Conceptualmente sí: ambas suman la entrada a la salida de la transformación. La diferencia es que en ResNet la transformación F es una convolución 2D, mientras que en el Transformer F es una capa de atención o una red feed-forward. El principio matemático del camino directo del gradiente es el mismo."
+    },
+    {
+        "pregunta": "¿Se podría aplicar el Transformer a datos que no sean secuencias?",
+        "respuesta": "Sí, siempre que los datos se puedan representar como un conjunto de vectores. El Vision Transformer divide imágenes en parches que se tratan como tokens. También se aplica a grafos, proteínas y datos tabulares. La autoatención opera sobre cualquier conjunto de vectores, no necesita que sean una secuencia temporal."
+    },
+    {
+        "pregunta": "¿Qué limitaciones tiene el chatbot construido en este trabajo?",
+        "respuesta": "Las principales son: un dataset pequeño de unas 250 preguntas que limita la cobertura temática, un modelo base pequeño de 124 millones de parámetros que restringe la capacidad de razonamiento, y el entrenamiento en Colab que limita el tiempo de experimentación. Aun así, demuestra la viabilidad del paradigma preentrenamiento más ajuste fino."
+    },
+    {
+        "pregunta": "¿Por qué se usa la suma en las conexiones residuales y no otra operación?",
+        "respuesta": "Porque la suma es la operación más simple que preserva un camino directo para el gradiente: al derivar x + F(x), el término identidad I aparece directamente. Otras operaciones como la multiplicación o la concatenación no producirían este camino directo, y complicarían el flujo del gradiente."
+    },
+    {
+        "pregunta": "¿Hay alternativas a la softmax para calcular los pesos de atención?",
+        "respuesta": "Sí, existen alternativas como la atención lineal o el sparsemax. Sin embargo, la softmax garantiza que los pesos sean positivos y sumen 1, formando una distribución de probabilidad. Además, la exponencial amplifica las diferencias entre puntuaciones, lo que permite al modelo focalizar la atención en los tokens más relevantes."
+    },
+    {
+        "pregunta": "¿Se podría reemplazar la softmax por otra función en la atención?",
+        "respuesta": "Sí, existen alternativas como la atención lineal o el sparsemax. Sin embargo, la softmax garantiza que los pesos sean positivos y sumen 1, formando una distribución de probabilidad. Además, la exponencial amplifica las diferencias entre puntuaciones, lo que permite al modelo focalizar la atención en los tokens más relevantes."
+    },
+    {
+        "pregunta": "¿Por qué se elige d_k igual a d_model dividido entre h?",
+        "respuesta": "Para que el coste computacional total de los h cabezales sea equivalente al de un único cabezal con dimensión d_model. Si se eligieran dimensiones mayores, el coste se multiplicaría; si fueran menores, se perdería capacidad expresiva sin ganar eficiencia."
+    },
+    {
+        "pregunta": "¿Qué pasaría si multiplicamos la codificación posicional por el embedding en vez de sumarla?",
+        "respuesta": "La multiplicación componente a componente cambiaría la magnitud del embedding de forma no uniforme, pudiendo anular o distorsionar la información semántica. La suma preserva ambas informaciones de forma aditiva: el modelo recibe tanto el significado de la palabra como su posición, y aprende a separarlas mediante las proyecciones Q, K, V."
+    },
+    {
+        "pregunta": "¿Por qué se suma el positional encoding al embedding y no se multiplica?",
+        "respuesta": "La multiplicación componente a componente cambiaría la magnitud del embedding de forma no uniforme, pudiendo anular o distorsionar la información semántica. La suma preserva ambas informaciones de forma aditiva: el modelo recibe tanto el significado de la palabra como su posición, y aprende a separarlas mediante las proyecciones Q, K, V."
+    },
+    {
+        "pregunta": "¿La cota omega del vanishing gradient es la misma para todas las capas?",
+        "respuesta": "Es una simplificación. En la práctica, cada capa puede tener una norma jacobiana diferente. Sin embargo, la cota se mantiene válida tomando omega como el máximo de las normas de todas las capas. Si ese máximo es menor que 1, el producto sigue convergiendo a cero."
+    },
+    {
+        "pregunta": "¿Funcionaría el Transformer sin normalización de capa, solo con conexiones residuales?",
+        "respuesta": "Es posible pero difícil en la práctica. Las conexiones residuales garantizan el camino directo del gradiente, pero sin normalización las activaciones pueden crecer descontroladamente por la acumulación de sumas, saturando las funciones de activación. El entrenamiento se vuelve inestable y requiere un ajuste muy fino del learning rate."
+    },
+    {
+        "pregunta": "¿Bastarían las conexiones residuales solas para entrenar el Transformer?",
+        "respuesta": "Es posible pero difícil en la práctica. Las conexiones residuales garantizan el camino directo del gradiente, pero sin normalización las activaciones pueden crecer descontroladamente por la acumulación de sumas, saturando las funciones de activación. El entrenamiento se vuelve inestable y requiere un ajuste muy fino del learning rate."
+    },
+    {
+        "pregunta": "¿Por qué la sigmoide causa más vanishing gradient que ReLU?",
+        "respuesta": "Porque la derivada de la sigmoide está acotada por 0.25 como máximo y tiende a cero para valores extremos. La derivada de ReLU es exactamente 1 para valores positivos, lo que no atenúa el gradiente. Sin embargo, ReLU tiene el problema de las neuronas muertas: si la entrada es negativa, la derivada es 0 permanentemente."
+    },
+    {
+        "pregunta": "¿Por qué el Transformer original tiene exactamente 6 capas?",
+        "respuesta": "Vaswani et al. experimentaron con diferentes profundidades y encontraron que 6 capas ofrecían un buen equilibrio entre capacidad del modelo y coste computacional para la tarea de traducción. Más capas mejoraban ligeramente el rendimiento pero con un coste mucho mayor. Modelos posteriores como GPT-3 usan 96 capas."
+    },
+    {
+        "pregunta": "¿Se eligieron 6 capas por algún motivo teórico?",
+        "respuesta": "Vaswani et al. experimentaron con diferentes profundidades y encontraron que 6 capas ofrecían un buen equilibrio entre capacidad del modelo y coste computacional para la tarea de traducción. Más capas mejoraban ligeramente el rendimiento pero con un coste mucho mayor. Modelos posteriores como GPT-3 usan 96 capas."
+    },
+    {
+        "pregunta": "¿Qué pasaría si quitamos la máscara del decodificador durante el entrenamiento?",
+        "respuesta": "El modelo haría trampa: al predecir el token en la posición i, podría ver los tokens futuros que aún no debería conocer. Aprendería a copiar en vez de a predecir, y en inferencia, cuando esos tokens futuros no existen, fallaría completamente. La máscara simula las condiciones de inferencia durante el entrenamiento."
+    },
+    {
+        "pregunta": "¿Por qué la equivariancia a permutaciones es un problema?",
+        "respuesta": "La equivariancia significa que las representaciones de cada token son las mismas independientemente del orden, solo cambian de posición en la matriz. Esto implica que el modelo no puede distinguir el orden de las palabras, que en lenguaje natural es fundamental para el significado. La codificación posicional rompe esta simetría."
+    },
+    {
+        "pregunta": "¿Se puede usar la misma matriz W para consultas y claves?",
+        "respuesta": "Sí, se puede, y se llama atención simétrica. Sin embargo, usar matrices diferentes permite que la consulta y la clave capturen aspectos distintos del mismo token: la consulta representa lo que el token busca y la clave lo que ofrece. Esta asimetría da más flexibilidad al modelo."
+    },
+    {
+        "pregunta": "¿Tiene desventajas la codificación posicional sinusoidal?",
+        "respuesta": "Su principal limitación es que codifica posiciones absolutas, no relativas directamente. Aunque la propiedad de rotación permite aprender relaciones relativas, modelos más recientes como RoPE codifican directamente la posición relativa en el producto escalar de la atención, lo que resulta más eficiente."
+    },
+    {
+        "pregunta": "¿Qué tiene que ver la softmax con la física estadística?",
+        "respuesta": "La softmax es matemáticamente idéntica a la distribución de Boltzmann en física estadística, donde cada estado tiene una energía y la probabilidad es proporcional a la exponencial negativa de la energía. El factor 1/sqrt(d_k) actúa como una temperatura que controla cuánto se concentra la distribución."
+    },
+    {
+        "pregunta": "¿Qué pasa cuando el learning rate es demasiado grande?",
+        "respuesta": "Las actualizaciones de pesos son demasiado grandes, lo que puede hacer que el modelo salte por encima del mínimo de la función de pérdida y oscile sin converger. En casos extremos, los pesos crecen sin control y producen valores NaN, como ocurrió en las primeras pruebas de este chatbot."
+    },
+    {
+        "pregunta": "¿Qué ocurre con un learning rate muy pequeño?",
+        "respuesta": "El aprendizaje se vuelve extremadamente lento porque las actualizaciones de pesos son minúsculas. El modelo puede quedarse atrapado en mínimos locales de la función de pérdida y no converger al óptimo en un tiempo razonable."
+    },
+    {
+        "pregunta": "¿Por qué se usa el producto escalar en vez de la distancia euclidiana en la atención?",
+        "respuesta": "El producto escalar mide la similitud de dirección entre dos vectores, no su distancia. Dos vectores que apuntan en la misma dirección tienen un producto escalar alto aunque tengan magnitudes diferentes. Además, el producto escalar se implementa como una multiplicación matricial QK^T, que es extremadamente eficiente en hardware moderno."
+    },
+    {
+        "pregunta": "¿Cómo aprende el modelo qué poner en las matrices Q, K y V?",
+        "respuesta": "Lo aprende durante el entrenamiento. Las matrices W^Q, W^K y W^V se inicializan aleatoriamente y se ajustan mediante retropropagación para minimizar la función de pérdida. El modelo descubre automáticamente qué proyecciones producen patrones de atención útiles para la tarea."
+    },
+    {
+        "pregunta": "¿Por qué es necesario tanto preentrenamiento en el Transformer?",
+        "respuesta": "Porque tiene millones de parámetros que necesitan datos suficientes para encontrar buenas representaciones del lenguaje. El preentrenamiento con grandes corpus permite aprender gramática, semántica y conocimiento general. Sin él, el modelo empezaría de cero y necesitaría enormes cantidades de datos específicos para cada tarea."
+    },
+    {
+        "pregunta": "¿El fine-tuning cambia todos los pesos del modelo?",
+        "respuesta": "En el ajuste fino estándar sí, todos los parámetros se actualizan. Sin embargo, existen técnicas como LoRA que solo modifican un subconjunto pequeño de parámetros, reduciendo el coste computacional. Para este chatbot se usa ajuste fino completo dado el tamaño reducido de GPT-2."
+    },
+    {
+        "pregunta": "¿Por qué el loss no baja más?",
+        "respuesta": "Porque el modelo tiene una capacidad limitada (124 millones de parámetros) y el dataset es pequeño. El loss se estabiliza cuando el modelo ha extraído toda la información que puede del dataset. Para bajar más se necesitaría un modelo más grande, más datos, o ambos."
+    },
+    {
+        "pregunta": "¿El chatbot memoriza o generaliza?",
+        "respuesta": "Memorizar significa reproducir exactamente las respuestas del dataset de entrenamiento. Generalizar significa responder correctamente a preguntas formuladas de formas que no ha visto. Un buen chatbot generaliza: si aprendió qué es la autoatención con una formulación, debería responder aunque la pregunta se haga con palabras diferentes."
+    },
+    {
+        "pregunta": "¿Por qué GPT-2 y no un modelo más grande para el chatbot?",
+        "respuesta": "Por las restricciones computacionales del proyecto. GPT-2 tiene 124 millones de parámetros, lo que permite realizar ajuste fino en Colab con GPU gratuita en minutos. Modelos más grandes requerirían GPUs más potentes y más tiempo de entrenamiento, sin garantía de mejora significativa para un dataset tan pequeño."
+    },
+    {
+        "pregunta": "¿Qué relación tiene la proposición de saturación con dividir por raíz de d_k?",
+        "respuesta": "La proposición demuestra que el producto escalar entre consultas y claves tiene varianza d_k. Como la desviación típica es raíz de d_k, dividir por ella normaliza la varianza a 1. Esto mantiene las puntuaciones en el rango donde la softmax tiene gradientes significativos, evitando la saturación que la proposición identifica."
+    },
+    {
+        "pregunta": "¿La conexión residual del Transformer es igual que la de ResNet?",
+        "respuesta": "Conceptualmente sí: ambas suman la entrada a la salida de la transformación. La diferencia es que en ResNet la transformación F es una convolución 2D, mientras que en el Transformer F es una capa de atención o una red feed-forward. El principio matemático del camino directo del gradiente es el mismo."
+    },
+    {
+        "pregunta": "¿Se puede aplicar la autoatención a datos que no sean texto?",
+        "respuesta": "Sí, siempre que los datos se puedan representar como un conjunto de vectores. El Vision Transformer divide imágenes en parches que se tratan como tokens. También se aplica a grafos, proteínas y datos tabulares. La autoatención opera sobre cualquier conjunto de vectores, no necesita que sean una secuencia temporal."
+    },
+    {
+        "pregunta": "¿Cuáles son las limitaciones del chatbot de este trabajo?",
+        "respuesta": "Las principales son: un dataset pequeño de unas 250 preguntas que limita la cobertura temática, un modelo base pequeño de 124 millones de parámetros que restringe la capacidad de razonamiento, y el entrenamiento en Colab que limita el tiempo de experimentación. Aun así, demuestra la viabilidad del paradigma preentrenamiento más ajuste fino."
+    },
+    {
+        "pregunta": "¿Qué hace el codificador del Transformer?",
+        "respuesta": "Recibe la secuencia de entrada completa y construye una representación rica de cada token que incorpora el contexto de toda la secuencia. Mediante la autoatención, cada palabra mira a todas las demás para entender su significado en contexto. La salida es una representación contextualizada que el decodificador consultará para generar la respuesta."
+    },
+    {
+        "pregunta": "¿Qué hace el decodificador del Transformer?",
+        "respuesta": "Genera la secuencia de salida token por token. En cada paso, consulta dos fuentes de información: los tokens que ya ha generado mediante autoatención enmascarada, y la representación de la entrada generada por el codificador mediante atención cruzada. Así decide qué token producir a continuación."
+    },
+    {
+        "pregunta": "¿Para qué sirve el codificador?",
+        "respuesta": "Para comprender la entrada. Lee toda la secuencia de entrada en paralelo y genera una representación profunda de cada palabra que incorpora su contexto. Es como leer y comprender una frase completa antes de empezar a responder."
+    },
+    {
+        "pregunta": "¿Para qué sirve el decodificador?",
+        "respuesta": "Para generar la salida. Produce tokens uno a uno, consultando en cada paso la representación del codificador para decidir qué palabra va a continuación. Es como un intérprete que va diciendo la traducción palabra por palabra, consultando su comprensión de la frase original."
+    },
+    {
+        "pregunta": "¿Cómo se comunican el codificador y el decodificador?",
+        "respuesta": "A través de la atención cruzada. La representación generada por el codificador se usa para crear las claves K y valores V, mientras que el decodificador genera las consultas Q desde su propia secuencia. Así el decodificador pregunta a la entrada qué información necesita en cada paso de generación."
+    },
+    {
+        "pregunta": "¿Qué es una consulta en el Transformer?",
+        "respuesta": "Es un vector que representa lo que un token busca en el contexto. Cuando un token genera su consulta, está preguntando: ¿qué información de las demás palabras necesito para entender mi significado en esta frase? Se obtiene multiplicando el embedding del token por la matriz de pesos W^Q."
+    },
+    {
+        "pregunta": "¿Qué es una clave en el Transformer?",
+        "respuesta": "Es un vector que representa lo que un token ofrece para ser encontrado por otros. Cuando otro token busca información relevante, compara su consulta con las claves de todos los demás. Una alta compatibilidad entre consulta y clave indica que ese token tiene información útil. Se obtiene multiplicando el embedding por W^K."
+    },
+    {
+        "pregunta": "¿Qué es un valor en el Transformer?",
+        "respuesta": "Es un vector que contiene la información semántica que un token transmite cuando otro le presta atención. Las claves determinan cuánta atención recibe cada token, pero son los valores los que aportan el contenido real que se mezcla en la representación final. Se obtiene multiplicando el embedding por W^V."
+    },
+    {
+        "pregunta": "¿Cuál es la diferencia entre claves y valores?",
+        "respuesta": "Las claves sirven para calcular cuánta atención recibe cada token: se comparan con las consultas para generar los pesos de atención. Los valores contienen la información que realmente se transmite. Las claves son como etiquetas que dicen soy relevante para tu pregunta, y los valores son el contenido asociado a esa etiqueta."
+    },
+    {
+        "pregunta": "¿Por qué se necesitan tres vectores distintos y no uno solo?",
+        "respuesta": "Porque separan tres funciones diferentes. La consulta define qué busca un token, la clave define cómo se presenta para ser encontrado, y el valor define qué información aporta. Si usáramos un solo vector, estas tres funciones estarían mezcladas y el modelo tendría menos flexibilidad para aprender relaciones complejas."
+    },
+    {
+        "pregunta": "¿De dónde salen las consultas, claves y valores?",
+        "respuesta": "Todos se generan a partir del mismo embedding de entrada, pero multiplicado por matrices de pesos diferentes: Q = XW^Q, K = XW^K, V = XW^V. Cada matriz de pesos se aprende durante el entrenamiento y proyecta la entrada a un espacio distinto optimizado para su función específica."
+    },
+    {
+        "pregunta": "Explica el Transformer como si no supiera nada de redes neuronales.",
+        "respuesta": "El Transformer es un modelo que procesa texto. Recibe una secuencia de palabras y produce otra. Su truco principal es la autoatención: para entender cada palabra, mira todas las demás de la frase y decide cuáles son importantes. Es como cuando lees una frase ambigua y miras el contexto para entenderla. Esto lo hace en paralelo para todas las palabras a la vez."
+    },
+    {
+        "pregunta": "¿Por qué el Transformer fue revolucionario?",
+        "respuesta": "Porque antes de él, los modelos procesaban el texto palabra por palabra de forma secuencial, lo que era lento e impedía capturar relaciones entre palabras lejanas. El Transformer puede mirar toda la secuencia a la vez y conectar directamente cualquier par de palabras, independientemente de su distancia. Además es paralelizable, lo que lo hace mucho más rápido de entrenar."
+    },
+    {
+        "pregunta": "¿Cómo sabe el Transformer el orden de las palabras?",
+        "respuesta": "Mediante la codificación posicional. Antes de procesar las palabras, se suma a cada embedding un vector que codifica su posición en la secuencia. Sin esto, el Transformer no distinguiría el gato come pescado de pescado come gato, porque la autoatención trata la entrada como un conjunto sin orden."
+    },
+    {
+        "pregunta": "¿Por qué el Transformer necesita saber el orden?",
+        "respuesta": "Porque el significado del lenguaje depende del orden de las palabras. El gato persiguió al ratón y el ratón persiguió al gato tienen significados opuestos. La autoatención por sí sola es equivariante a permutaciones: produce las mismas representaciones independientemente del orden. La codificación posicional rompe esta simetría."
+    },
+    {
+        "pregunta": "¿Qué pasa si no añadimos codificación posicional?",
+        "respuesta": "El modelo no puede distinguir frases con las mismas palabras en diferente orden. El gato come pescado y pescado come gato el producirían exactamente las mismas representaciones para cada palabra, solo reordenadas. El modelo trataría la entrada como una bolsa de palabras sin estructura secuencial."
+    },
+    {
+        "pregunta": "¿Qué son los pesos de atención en lenguaje sencillo?",
+        "respuesta": "Son porcentajes que indican cuánta importancia da cada palabra a cada una de las demás. Por ejemplo, en la frase escribe un email, la palabra escribe podría dar un 78% de importancia a email, un 18% a sí misma y un 4% a un. Estos porcentajes siempre suman 100% y se calculan automáticamente."
+    },
+    {
+        "pregunta": "¿Qué es la máscara del decodificador en palabras simples?",
+        "respuesta": "Es un mecanismo que impide hacer trampas durante el entrenamiento. Cuando el modelo está aprendiendo a generar texto, no debe poder ver las palabras que vienen después de la que está prediciendo. La máscara tapa las posiciones futuras, obligando al modelo a predecir basándose solo en lo que ha visto hasta ese momento."
+    },
+    {
+        "pregunta": "¿Por qué GPT no usa el codificador?",
+        "respuesta": "Porque GPT es un modelo generativo que solo necesita predecir la siguiente palabra basándose en las anteriores. No tiene una secuencia de entrada separada que codificar como en traducción. Todo es una sola secuencia que se va extendiendo token por token, lo que solo requiere el decodificador con su autoatención enmascarada."
+    },
+    {
+        "pregunta": "¿Cómo funciona un chatbot basado en GPT?",
+        "respuesta": "Recibe la pregunta del usuario como secuencia de tokens y genera la respuesta token por token. En cada paso, el modelo calcula la probabilidad de cada posible token siguiente, elige uno, lo añade a la secuencia, y repite el proceso hasta generar un token de fin. La autoatención enmascarada le permite ver toda la pregunta y la respuesta generada hasta el momento."
+    },
+    {
+        "pregunta": "¿Qué aprende el Transformer durante el entrenamiento?",
+        "respuesta": "Aprende las matrices de pesos W^Q, W^K, W^V y W^O de cada cabezal de atención en cada capa, los pesos de las redes feed-forward, los parámetros gamma y beta de la normalización de capa, y la tabla de embeddings. Todos estos parámetros se ajustan mediante retropropagación para minimizar la función de pérdida."
+    },
+    {
+        "pregunta": "¿Qué es un embedding en palabras simples?",
+        "respuesta": "Es la traducción de una palabra a una lista de números que la computadora puede procesar. Cada palabra del vocabulario tiene su propia lista de números que codifica su significado. Palabras con significados similares tienen listas de números parecidas. Esta tabla de traducciones se aprende durante el entrenamiento."
+    },
+    {
+        "pregunta": "¿Qué significa que un modelo es auto-regresivo?",
+        "respuesta": "Que genera la salida elemento por elemento, donde cada predicción depende de lo que ha generado previamente. El modelo predice el primer token, lo añade a la secuencia, predice el segundo usando el primero como contexto, y así sucesivamente hasta completar la respuesta."
+    },
+    {
+        "pregunta": "¿Qué es la función de pérdida en palabras simples?",
+        "respuesta": "Es un número que mide cuánto se equivoca el modelo. Cuanto menor sea, mejor son las predicciones. Durante el entrenamiento, el modelo ajusta sus pesos para hacer este número lo más pequeño posible. Si la pérdida es alta, el modelo está prediciendo mal; si es baja, está acertando."
+    },
+    {
+        "pregunta": "¿Cómo aprende una red neuronal?",
+        "respuesta": "Mediante un ciclo repetitivo: primero hace una predicción con sus pesos actuales, luego mide cuánto se equivocó con la función de pérdida, después calcula cómo debería cambiar cada peso para equivocarse menos usando la retropropagación, y finalmente actualiza los pesos. Este ciclo se repite miles de veces hasta que la pérdida es suficientemente baja."
+    },
+    {
+        "pregunta": "¿Qué es la retropropagación en palabras simples?",
+        "respuesta": "Es el algoritmo que calcula cuánto contribuyó cada peso del modelo al error final. Parte del error en la salida y va hacia atrás capa por capa, calculando la responsabilidad de cada peso. Es como rastrear la cadena de decisiones que llevaron a una predicción incorrecta para saber qué ajustar."
+    },
+    {
+        "pregunta": "¿Por qué se llama Transformer?",
+        "respuesta": "Porque transforma una secuencia de entrada en una secuencia de salida. El nombre también refleja la idea de que las representaciones de las palabras se transforman a lo largo de las capas, pasando de representaciones aisladas a representaciones contextualizadas que incorporan información de toda la secuencia."
+    },
+    {
+        "pregunta": "¿Qué relación tiene el Transformer con ChatGPT?",
+        "respuesta": "ChatGPT está basado en la arquitectura GPT, que a su vez usa exclusivamente el decodificador del Transformer. La diferencia principal es la escala: ChatGPT tiene miles de millones de parámetros y fue entrenado con cantidades masivas de texto, mientras que el Transformer original tenía dimensiones mucho más modestas."
+    },
+    {
+        "pregunta": "¿Para qué sirven las claves en la atención?",
+        "respuesta": "Las claves representan lo que cada token ofrece para ser encontrado por otros. Se comparan con las consultas mediante producto escalar para determinar cuánta atención recibe cada token. Una alta compatibilidad entre consulta y clave indica que ese token contiene información relevante."
+    },
+    {
+        "pregunta": "¿Qué papel juegan las claves en la autoatención?",
+        "respuesta": "Las claves se comparan con las consultas para calcular las puntuaciones de afinidad. Si la clave de un token es muy compatible con la consulta de otro, ese token recibirá un peso de atención alto y su valor contribuirá significativamente a la representación contextualizada."
+    },
+    {
+        "pregunta": "¿Cómo se usan las claves para calcular la atención?",
+        "respuesta": "Se multiplican por las consultas mediante el producto escalar QK^T. El resultado es una matriz de puntuaciones que indica la compatibilidad entre cada par de tokens. Estas puntuaciones se escalan por raíz de d_k y se normalizan con softmax para obtener los pesos de atención."
+    },
+    {
+        "pregunta": "¿Por qué las claves y las consultas tienen la misma dimensión?",
+        "respuesta": "Porque se necesita calcular el producto escalar QK^T entre ellas. Para que esta multiplicación matricial esté definida, ambas deben vivir en el mismo espacio de dimensión d_k. Los valores, en cambio, pueden tener una dimensión d_v diferente."
+    },
+    {
+        "pregunta": "¿Qué son los valores en la atención?",
+        "respuesta": "Son vectores que contienen la información semántica de cada token. Cuando la atención determina que un token es relevante, es su vector de valor el que se incorpora a la representación final. Las claves deciden cuánta atención recibe cada token, pero los valores aportan el contenido."
+    },
+    {
+        "pregunta": "¿Qué contienen los valores en el mecanismo de atención?",
+        "respuesta": "Contienen la información que realmente se transmite entre tokens. Los pesos de atención determinan cuánto de cada valor se incorpora a la salida. La representación contextualizada de cada token es una suma ponderada de los vectores de valor de todos los tokens."
+    },
+    {
+        "pregunta": "¿Cuál es la función de V en la fórmula de atención?",
+        "respuesta": "V es la matriz de valores que se pondera según los pesos de atención. En la fórmula Attention(Q,K,V) = softmax(QK^T/sqrt(d_k))V, la matriz softmax(QK^T/sqrt(d_k)) contiene los pesos, y al multiplicar por V se obtiene la suma ponderada de los valores que forma la salida."
+    },
+    {
+        "pregunta": "¿Qué diferencia hay entre claves y valores?",
+        "respuesta": "Las claves determinan cuánta atención recibe cada token al compararse con las consultas. Los valores contienen la información que se transmite. Las claves son como etiquetas que dicen soy relevante para tu pregunta, y los valores son el contenido asociado a esa etiqueta."
+    },
+    {
+        "pregunta": "¿Qué hace la softmax en el Transformer?",
+        "respuesta": "Convierte las puntuaciones brutas de compatibilidad entre tokens en una distribución de probabilidad. Tras aplicarla, los pesos de atención son todos positivos y suman 1 para cada token, lo que permite interpretarlos como porcentajes de atención."
+    },
+    {
+        "pregunta": "¿Cuál es el papel de la softmax en la atención?",
+        "respuesta": "Normaliza las puntuaciones del producto escalar QK^T para convertirlas en pesos de atención válidos. Sin softmax, las puntuaciones serían números arbitrarios. Con softmax, se transforman en valores positivos que suman 1, formando una distribución de probabilidad."
+    },
+    {
+        "pregunta": "¿Por qué se usa softmax y no otra función para normalizar la atención?",
+        "respuesta": "Porque la softmax garantiza que los pesos sean positivos y sumen 1, formando una distribución de probabilidad. Además, la función exponencial amplifica las diferencias entre puntuaciones, permitiendo al modelo concentrar la atención en los tokens más relevantes."
+    },
+    {
+        "pregunta": "¿Dónde se aplica la softmax en el Transformer?",
+        "respuesta": "Se aplica en dos lugares. Primero, dentro de la función de atención para normalizar las puntuaciones QK^T/sqrt(d_k) y obtener los pesos de atención. Segundo, en la capa de salida de GPT para convertir el vector de puntuaciones en una distribución de probabilidad sobre el vocabulario."
+    },
+    {
+        "pregunta": "¿Cuántas sub-capas tiene cada capa del codificador?",
+        "respuesta": "Cada capa del codificador tiene dos sub-capas: una de autoatención multi-cabezal y una red feed-forward. Ambas están envueltas por conexiones residuales y normalización de capa. El codificador tiene 6 capas idénticas, cada una con estas dos sub-capas."
+    },
+    {
+        "pregunta": "¿Qué sub-capas componen el codificador?",
+        "respuesta": "Cada una de las 6 capas del codificador contiene dos sub-capas: primero una capa de autoatención multi-cabezal que captura las relaciones entre tokens, y después una red feed-forward que transforma cada representación de forma independiente."
+    },
+    {
+        "pregunta": "¿Cuántas sub-capas tiene cada capa del decodificador?",
+        "respuesta": "Cada capa del decodificador tiene tres sub-capas: una autoatención enmascarada que impide ver tokens futuros, una atención cruzada que conecta con el codificador, y una red feed-forward. Las tres están envueltas por conexiones residuales y normalización de capa."
+    },
+    {
+        "pregunta": "¿Para qué sirve la red feed-forward en el Transformer?",
+        "respuesta": "Transforma la representación contextualizada de cada token de forma independiente, aplicando dos capas lineales con una activación no lineal entre ellas. Mientras la autoatención mezcla información entre tokens, la red feed-forward procesa cada token por separado para enriquecer su representación."
+    },
+    {
+        "pregunta": "¿Qué hace la red feed-forward en cada bloque del Transformer?",
+        "respuesta": "Aplica una transformación no lineal a cada token de forma independiente. Consta de dos capas lineales con una activación ReLU entre ellas. Su función es transformar las representaciones que la autoatención ha contextualizado, añadiendo capacidad de procesamiento no lineal."
+    },
+    {
+        "pregunta": "¿Por qué el Transformer necesita una red feed-forward además de la atención?",
+        "respuesta": "Porque la autoatención es esencialmente una operación lineal sobre los valores, y no basta para aprender representaciones complejas. La red feed-forward añade no linealidad al procesamiento de cada token, permitiendo al modelo aprender transformaciones más ricas."
+    },
+    {
+        "pregunta": "¿Cuántos cabezales de atención tiene el Transformer original?",
+        "respuesta": "Tiene h = 8 cabezales de atención en cada capa. Con d_model = 512, cada cabezal opera en un subespacio de dimensión d_k = d_v = 512/8 = 64. Los 8 cabezales se ejecutan en paralelo y sus salidas se concatenan y proyectan con W^O."
+    },
+    {
+        "pregunta": "¿Cuántos cabezales usa el Transformer de Vaswani?",
+        "respuesta": "Usa 8 cabezales por capa, cada uno con dimensión 64. Esto permite capturar 8 tipos diferentes de relaciones simultáneamente. El coste computacional total es equivalente al de un único cabezal con la dimensión completa de 512."
+    },
+    {
+        "pregunta": "¿Por qué 8 cabezales y no más o menos?",
+        "respuesta": "Vaswani et al. experimentaron con diferentes valores y encontraron que 8 cabezales con d_k = 64 ofrecían el mejor equilibrio. Muy pocos cabezales limitan la capacidad de capturar relaciones diversas, y demasiados reducen excesivamente la dimensión de cada uno."
+    },
+    {
+        "pregunta": "¿Por qué necesita el Transformer saber la posición de las palabras?",
+        "respuesta": "Porque la autoatención es equivariante a permutaciones: sin información posicional, las frases el gato come pescado y pescado come gato el producirían las mismas representaciones. La codificación posicional rompe esta simetría sumando a cada embedding un vector que indica su posición en la secuencia."
+    },
+    {
+        "pregunta": "¿Cómo sabe el Transformer en qué posición está cada palabra?",
+        "respuesta": "Mediante la codificación posicional: antes de la primera capa, se suma al embedding de cada token un vector de senos y cosenos que codifica su posición. Cada posición tiene un vector único, lo que permite al modelo distinguir el orden de las palabras."
+    },
+    {
+        "pregunta": "¿Por qué la codificación posicional es necesaria?",
+        "respuesta": "Porque sin ella el modelo trata la entrada como un conjunto sin orden en vez de como una secuencia. Las palabras el gato come y come gato el tendrían las mismas representaciones, lo que haría imposible entender el significado correcto de las frases."
+    },
+    {
+        "pregunta": "¿Qué funciones matemáticas se usan para la codificación posicional?",
+        "respuesta": "Funciones seno y coseno de diferentes frecuencias. Las dimensiones pares usan seno y las impares coseno, con frecuencias que decrecen exponencialmente. Las frecuencias altas distinguen posiciones cercanas y las bajas distinguen posiciones lejanas."
+    },
+    {
+        "pregunta": "¿Qué tipo de funciones usa la codificación posicional?",
+        "respuesta": "Usa pares de funciones seno y coseno con frecuencias que forman una progresión geométrica. Cada par de dimensiones consecutivas corresponde a una frecuencia diferente, desde oscilaciones rápidas para posiciones cercanas hasta oscilaciones lentas para posiciones lejanas."
+    },
+    {
+        "pregunta": "¿Se pueden aprender las posiciones en vez de calcularlas con seno y coseno?",
+        "respuesta": "Sí, Vaswani et al. probaron ambas opciones con resultados casi idénticos. La ventaja de las funciones sinusoidales es que no añaden parámetros al modelo y permiten generalizar a secuencias más largas que las vistas durante el entrenamiento, ya que están definidas para cualquier posición."
+    },
+    {
+        "pregunta": "¿Por qué no se aprenden las posiciones durante el entrenamiento?",
+        "respuesta": "Es una opción válida y produce resultados similares. Pero las funciones seno y coseno tienen dos ventajas: no introducen parámetros adicionales y permiten generalizar a secuencias más largas que las del entrenamiento, ya que están definidas para cualquier valor de posición."
+    },
+    {
+        "pregunta": "¿Qué es el vanishing gradient?",
+        "respuesta": "Es el fenómeno donde la norma del gradiente decrece exponencialmente al retropropagarse a través de muchas capas. Se produce porque al aplicar la regla de la cadena, se multiplican secuencialmente matrices jacobianas cuya norma es menor que 1, haciendo que el producto converja a cero."
+    },
+    {
+        "pregunta": "¿En qué consiste el problema del vanishing gradient?",
+        "respuesta": "En que al retropropagar el gradiente a través de muchas capas, cada capa lo multiplica por su jacobiana. Si la norma de estas jacobianas es menor que 1, el producto decrece exponencialmente con la profundidad, impidiendo que las primeras capas reciban señal de error suficiente para aprender."
+    },
+    {
+        "pregunta": "¿Por qué se desvanece el gradiente en redes profundas?",
+        "respuesta": "Porque la regla de la cadena produce un producto de matrices jacobianas, una por cada capa. Si la norma de cada jacobiana está acotada por omega menor que 1, el producto total está acotado por omega elevado a M-1, que tiende a cero conforme crece la profundidad M."
+    },
+    {
+        "pregunta": "¿Qué diferencia hay entre vanishing gradient y gradient clipping?",
+        "respuesta": "El vanishing gradient es un problema: el gradiente se atenúa exponencialmente al retropropagarse y las primeras capas dejan de aprender. El gradient clipping es una solución al problema opuesto: limita la norma del gradiente cuando es demasiado grande para evitar la explosión del gradiente."
+    },
+    {
+        "pregunta": "¿Cómo predice GPT la siguiente palabra?",
+        "respuesta": "En cada paso, la secuencia generada hasta el momento pasa por todos los bloques del decodificador. La salida del último bloque se proyecta mediante una capa lineal a un vector de puntuaciones sobre todo el vocabulario, y se aplica softmax para obtener la probabilidad de cada token. Se elige un token y se repite el proceso."
+    },
+    {
+        "pregunta": "¿Cómo genera texto GPT paso a paso?",
+        "respuesta": "Token por token de forma auto-regresiva. Primero procesa la secuencia actual con autoatención enmascarada, luego proyecta la salida a un vector de puntuaciones sobre el vocabulario, aplica softmax para obtener probabilidades, selecciona un token, lo añade a la secuencia y repite hasta generar el token de fin."
+    },
+    {
+        "pregunta": "¿Cómo decide GPT qué palabra va después?",
+        "respuesta": "Calcula una distribución de probabilidad sobre todo el vocabulario para la siguiente posición. Para ello, la salida del último bloque se transforma mediante una capa lineal seguida de softmax. El token con mayor probabilidad o uno muestreado de la distribución se selecciona como siguiente palabra."
+    },
+    {
+        "pregunta": "¿Qué es el preentrenamiento?",
+        "respuesta": "Es la fase donde el modelo se entrena con grandes volúmenes de texto sin etiquetar, aprendiendo a predecir el siguiente token. Durante esta fase el modelo adquiere conocimiento general del idioma: gramática, vocabulario y estructura textual. Es la fase más costosa computacionalmente."
+    },
+    {
+        "pregunta": "¿En qué consiste el preentrenamiento de un modelo de lenguaje?",
+        "respuesta": "En entrenar el modelo con cantidades masivas de texto sin etiquetar, donde el único objetivo es predecir la siguiente palabra. El modelo lee millones de documentos y aprende patrones generales del lenguaje sin supervisión humana directa. Después se puede especializar mediante ajuste fino."
+    },
+    {
+        "pregunta": "¿Qué aprende un modelo durante el preentrenamiento?",
+        "respuesta": "Aprende representaciones generales del lenguaje: gramática, vocabulario, relaciones semánticas y estructura textual. Todo esto lo aprende prediciendo la siguiente palabra en grandes cantidades de texto. No aprende ninguna tarea específica, solo las reglas generales del idioma."
+    },
+    {
+        "pregunta": "¿Qué ventaja tiene la atención sobre la convolución?",
+        "respuesta": "La atención conecta cualquier par de tokens directamente en un solo paso, mientras que una convolución con filtro de tamaño K solo ve K tokens adyacentes. Para que una CNN relacione tokens separados por distancia D necesita apilar D/K capas, lo que provoca el desvanecimiento del gradiente."
+    },
+    {
+        "pregunta": "¿Por qué la autoatención es mejor que la convolución para texto?",
+        "respuesta": "Porque el lenguaje tiene dependencias a larga distancia que requieren conectar palabras lejanas. La autoatención lo hace en un paso con camino O(1), mientras que una CNN necesita apilar muchas capas para que su campo receptivo cubra la distancia, provocando el desvanecimiento del gradiente."
+    },
+    {
+        "pregunta": "¿Qué limitación tienen las CNN que la atención no tiene?",
+        "respuesta": "Las CNN tienen un campo receptivo limitado: cada capa solo procesa K elementos adyacentes. Para capturar dependencias a distancia D necesitan apilar D/K capas. La autoatención no tiene esta limitación porque conecta todos los pares de tokens directamente."
+    },
+    {
+        "pregunta": "¿Se puede usar el Transformer para imágenes?",
+        "respuesta": "Sí, el Vision Transformer (ViT) divide la imagen en parches cuadrados que se tratan como una secuencia de tokens. Cada parche se proyecta a un embedding y se procesa con el mismo mecanismo de autoatención del Transformer original, demostrando que la arquitectura no está limitada al texto."
+    },
+    {
+        "pregunta": "¿El Transformer solo sirve para texto?",
+        "respuesta": "No, se aplica a muchos tipos de datos. El Vision Transformer lo usa para imágenes divididas en parches, también se aplica a audio, proteínas y datos tabulares. La autoatención funciona con cualquier dato que se pueda representar como una secuencia de vectores."
+    },
+    {
+        "pregunta": "¿Qué significa que la atención es equivariante a permutaciones?",
+        "respuesta": "Que si reordenas los tokens de la entrada, la salida se reordena exactamente de la misma forma sin que las representaciones de cada token cambien. El vector contextualizado de una palabra es idéntico independientemente de su posición en la secuencia. Por eso se necesita codificación posicional."
+    },
+    {
+        "pregunta": "¿Qué consecuencia tiene la equivariancia de la autoatención?",
+        "respuesta": "Que el modelo no puede distinguir el orden de las palabras por sí solo. Las frases el gato come pescado y pescado come gato el producirían las mismas representaciones, solo reordenadas. La codificación posicional rompe esta simetría inyectando información del orden."
+    },
+    {
+        "pregunta": "¿Qué es la temperatura en la generación de texto?",
+        "respuesta": "Es un parámetro que controla la aleatoriedad al generar texto. Con temperatura baja el modelo elige los tokens más probables de forma determinista. Con temperatura alta explora opciones menos probables, produciendo texto más variado pero potencialmente menos coherente."
+    },
+    {
+        "pregunta": "¿Qué es un vocabulario en el contexto de GPT?",
+        "respuesta": "Es el conjunto finito de todos los tokens que el modelo puede reconocer y generar. Cada token tiene un índice único y un vector de embedding asociado. El tokenizador convierte el texto en secuencias de índices de este vocabulario."
+    },
+    {
+        "pregunta": "¿Qué es el stride en una CNN?",
+        "respuesta": "Es el paso con el que el filtro se desplaza sobre la entrada. Con stride 1, el filtro avanza una posición cada vez, procesando todas las posiciones consecutivas. Con stride mayor, se saltan posiciones, reduciendo la dimensión de la salida."
+    },
+    {
+        "pregunta": "¿Qué es una distribución de probabilidad?",
+        "respuesta": "Es una asignación de probabilidades a un conjunto de opciones donde cada probabilidad es positiva y todas suman 1. En el Transformer, la softmax convierte las puntuaciones de atención en una distribución de probabilidad sobre los tokens de la secuencia."
+    },
+    {
+        "pregunta": "¿Qué son los hiperparámetros del entrenamiento?",
+        "respuesta": "Son valores que se fijan antes de entrenar y no se aprenden automáticamente, como el learning rate, el número de épocas, el batch size y el weight decay. Su elección afecta significativamente al resultado y requiere experimentación."
+    },
+    {
+        "pregunta": "¿Qué es el weight decay?",
+        "respuesta": "Es una técnica de regularización que penaliza los pesos grandes durante el entrenamiento, añadiendo un término proporcional a la magnitud de los pesos en la función de pérdida. Incentiva soluciones más simples y reduce el riesgo de overfitting."
+    },
+    {
+        "pregunta": "¿Qué hace el gradient clipping?",
+        "respuesta": "Limita la norma del gradiente a un valor máximo antes de actualizar los pesos. Si el gradiente es muy grande, se reescala proporcionalmente. Esto previene la explosión del gradiente, que puede producir valores NaN y desestabilizar el entrenamiento."
+    },
+    {
+        "pregunta": "¿Qué relación hay entre el batch size y la estabilidad del entrenamiento?",
+        "respuesta": "Un batch mayor calcula el gradiente promedio de más ejemplos, lo que reduce la varianza de las actualizaciones y estabiliza el entrenamiento. Un batch pequeño es más ruidoso pero puede ayudar a escapar de mínimos locales. También afecta a la velocidad y uso de memoria."
+    },
+    {
+        "pregunta": "¿Cómo se inicializan los pesos del Transformer?",
+        "respuesta": "De forma aleatoria, siguiendo una distribución simétrica con media 0 y varianza 1/d, donde d es la dimensión del modelo. Esta inicialización es importante porque determina el comportamiento de los gradientes al inicio del entrenamiento, como demuestra el Teorema de Xiong et al."
+    },
+    {
+        "pregunta": "¿Qué es el learning rate y por qué es importante?",
+        "respuesta": "Es el escalar que controla la magnitud de las actualizaciones de pesos en cada paso del entrenamiento. Si es muy alto, el modelo se vuelve inestable y puede producir NaN. Si es muy bajo, el aprendizaje es demasiado lento. Encontrar el valor adecuado es crucial para el éxito del entrenamiento."
+    },
+    {
+        "pregunta": "¿Qué es early stopping?",
+        "respuesta": "Es una técnica para prevenir el overfitting que consiste en detener el entrenamiento cuando la pérdida en un conjunto de validación empieza a subir, aunque la pérdida de entrenamiento siga bajando. El punto donde se detiene marca el equilibrio entre aprendizaje y memorización."
+    },
+    {
+        "pregunta": "¿Qué dimensiones tiene el Transformer original?",
+        "respuesta": "Tiene d_model = 512 como dimensión del modelo, h = 8 cabezales de atención con d_k = d_v = 64 cada uno, y N = 6 capas tanto en el codificador como en el decodificador. La red feed-forward interna tiene dimensión 2048."
+    },
+    {
+        "pregunta": "¿Qué representan las claves K en la autoatención?",
+        "respuesta": "Representan lo que cada token ofrece para ser encontrado por otros. Se comparan con las consultas mediante producto escalar para calcular cuánta atención recibe cada token. Son como etiquetas que indican la relevancia de cada token para las consultas de los demás."
+    },
+    {
+        "pregunta": "¿Qué información llevan los valores V?",
+        "respuesta": "Llevan la información semántica que se transmite cuando un token recibe atención. Los pesos de atención determinan cuánto de cada valor se incorpora a la salida, pero el contenido real proviene de los vectores de valor."
+    },
+    {
+        "pregunta": "¿Cómo normaliza la softmax las puntuaciones de atención?",
+        "respuesta": "Aplica la función exponencial a cada puntuación y divide por la suma de todas las exponenciales. El resultado son valores positivos que suman 1, formando una distribución de probabilidad que indica qué porcentaje de atención recibe cada token."
+    },
+    {
+        "pregunta": "¿Qué estructura interna tiene cada capa del codificador?",
+        "respuesta": "Contiene dos sub-capas: primero una autoatención multi-cabezal con 8 cabezales, y después una red feed-forward. Cada sub-capa está envuelta por una conexión residual y seguida de normalización de capa."
+    },
+    {
+        "pregunta": "¿Cuántas sub-capas tiene el decodificador por capa?",
+        "respuesta": "Tres sub-capas: autoatención enmascarada para ver solo tokens anteriores, atención cruzada para consultar la salida del codificador, y una red feed-forward. Cada una envuelta por conexión residual y normalización de capa."
+    },
+    {
+        "pregunta": "¿Qué función cumple la red feed-forward dentro del Transformer?",
+        "respuesta": "Procesa cada token de forma independiente mediante dos transformaciones lineales con una activación ReLU entre ellas. Mientras la autoatención mezcla información entre tokens, la feed-forward transforma cada representación individual para enriquecerla."
+    },
+    {
+        "pregunta": "¿Con cuántos cabezales trabaja el Transformer de Vaswani et al.?",
+        "respuesta": "Con 8 cabezales por capa, cada uno operando en un subespacio de dimensión 64. La dimensión total es 8 × 64 = 512 = d_model, lo que mantiene el coste computacional equivalente a un único cabezal con la dimensión completa."
+    },
+    {
+        "pregunta": "¿Cómo codifica el Transformer la posición de cada palabra?",
+        "respuesta": "Suma al embedding de cada token un vector de codificación posicional calculado con funciones seno y coseno de diferentes frecuencias. Las dimensiones pares usan seno, las impares coseno. Cada posición tiene un vector único."
+    },
+    {
+        "pregunta": "¿Por qué seno y coseno para las posiciones?",
+        "respuesta": "Porque permiten expresar la relación entre posiciones como una rotación que depende solo de la distancia, no de la posición absoluta. Además no añaden parámetros al modelo y generalizan a secuencias más largas que las vistas en el entrenamiento."
+    },
+    {
+        "pregunta": "¿Cómo se manifiesta el vanishing gradient en la práctica?",
+        "respuesta": "Las primeras capas de la red reciben gradientes tan pequeños que sus pesos apenas se actualizan. Efectivamente dejan de aprender, mientras las capas cercanas a la salida sí reciben señal suficiente. Esto limita severamente la profundidad útil de la red."
+    },
+    {
+        "pregunta": "¿Cómo resuelve el Transformer el problema del vanishing gradient?",
+        "respuesta": "Mediante tres mecanismos combinados: las conexiones residuales proporcionan un camino directo para el gradiente con el término identidad I, la normalización de capa estabiliza la escala de las activaciones, y la disposición Pre-LN preserva el camino directo sin distorsionarlo."
+    },
+    {
+        "pregunta": "¿Cómo funciona la generación de texto en GPT?",
+        "respuesta": "De forma auto-regresiva, token por token. En cada paso la secuencia pasa por los bloques del decodificador, la salida se proyecta a puntuaciones sobre el vocabulario, se aplica softmax para obtener probabilidades, se elige un token y se añade a la secuencia. Se repite hasta generar el token de fin."
+    },
+    {
+        "pregunta": "¿Qué ocurre durante el preentrenamiento de GPT?",
+        "respuesta": "El modelo lee millones de documentos de texto y aprende a predecir la siguiente palabra en cada posición. Sin supervisión humana directa, adquiere gramática, vocabulario y estructura del idioma. Esta fase es la más costosa y produce el conocimiento general que después se especializa con ajuste fino."
+    },
+    {
+        "pregunta": "¿Por qué la atención es mejor que la convolución para textos largos?",
+        "respuesta": "Porque la autoatención conecta cualquier par de tokens en un solo paso, sin importar la distancia. Una CNN con filtro de tamaño K necesita apilar muchas capas para que su campo receptivo cubra toda la secuencia, y la profundidad resultante provoca el desvanecimiento del gradiente."
+    },
+    {
+        "pregunta": "¿Puede el Transformer procesar otros datos además de texto?",
+        "respuesta": "Sí, se aplica a imágenes con el Vision Transformer, a audio, proteínas, grafos y datos tabulares. La autoatención funciona con cualquier dato que se represente como una secuencia de vectores. La arquitectura es agnóstica al tipo de datos."
+    },
+    {
+        "pregunta": "¿Qué implica la equivariancia para el procesamiento de texto?",
+        "respuesta": "Que sin codificación posicional, el Transformer no puede distinguir el orden de las palabras. Las frases con las mismas palabras en distinto orden producirían representaciones idénticas para cada palabra. La codificación posicional es necesaria para romper esta simetría."
+    },
+    {
+        "pregunta": "Explica el vanishing gradient como si no supiera nada.",
+        "respuesta": "Cuando una red neuronal aprende, calcula cuánto debe cambiar cada peso para mejorar. Este cálculo empieza por la salida y va hacia atrás capa por capa. El problema es que en cada capa la señal se hace más pequeña, y después de muchas capas llega tan débil a las primeras que ya no sirve para aprender."
+    },
+    {
+        "pregunta": "¿Qué es la autoatención en palabras sencillas?",
+        "respuesta": "Es el mecanismo que permite a cada palabra de una frase mirar a todas las demás para entender su significado en contexto. Para cada palabra, calcula cuánta atención debe prestar a las demás, y usa esos porcentajes para construir una representación que incorpora la información relevante."
+    },
+    {
+        "pregunta": "¿Para qué sirve Q en la atención?",
+        "respuesta": "Q es la matriz de consultas. Cada fila es el vector de consulta de un token, que representa lo que ese token busca en el contexto. Se compara con las claves de todos los demás tokens para determinar a cuáles debe prestar más atención."
+    },
+    {
+        "pregunta": "¿Cómo se relacionan Q, K y V?",
+        "respuesta": "Q y K se comparan mediante producto escalar para calcular los pesos de atención. Esos pesos determinan cuánto de cada vector de V se incorpora a la salida. Q pregunta, K responde con compatibilidad, y V aporta el contenido."
+    },
+    {
+        "pregunta": "¿Por qué las RNN no pueden procesar textos largos?",
+        "respuesta": "Porque procesan los tokens de forma secuencial, uno tras otro. La señal de error debe recorrer todos los estados intermedios para relacionar tokens lejanos, y se desvanece en el camino. Además, la secuencialidad impide la paralelización, haciendo el entrenamiento mucho más lento."
+    },
+    {
+        "pregunta": "¿Qué significa que GPT es auto-regresivo?",
+        "respuesta": "Que genera texto token por token, donde cada predicción depende de los tokens generados previamente. Predice el primer token, lo añade a la secuencia, predice el segundo usando el primero como contexto, y así sucesivamente hasta completar la respuesta."
+    },
+    {
+        "pregunta": "¿Por qué se necesita el ajuste fino?",
+        "respuesta": "Porque el preentrenamiento solo enseña conocimiento general del idioma. Para que el modelo sea útil en una tarea concreta, como responder preguntas sobre el Transformer, necesita ver ejemplos específicos de esa tarea. El ajuste fino adapta el conocimiento general al dominio específico."
+    },
+    {
+        "pregunta": "¿Qué es d_model en el Transformer?",
+        "respuesta": "Es la dimensión de los vectores de representación a lo largo de toda la red. En el Transformer original es 512. Determina el tamaño de los embeddings, de las salidas de cada sub-capa y de las representaciones contextualizadas. Todas las capas trabajan con esta dimensión."
+    },
+    {
+        "pregunta": "¿Por qué el resultado del chatbot muestra overfitting?",
+        "respuesta": "Porque el dataset tiene solo 312 ejemplos para un modelo con 124 millones de parámetros. El modelo tiene tanta capacidad que puede memorizar todas las respuestas literalmente sin necesidad de aprender patrones generales. Es como dar 312 ejercicios a un estudiante con memoria fotográfica."
+    },
+    {
+        "pregunta": "¿Se podría mejorar el chatbot?",
+        "respuesta": "Sí, ampliando significativamente el dataset con más reformulaciones de las mismas preguntas, usando un modelo más pequeño como DistilGPT-2 para forzar la generalización, o aplicando técnicas de regularización como early stopping o dropout más agresivo."
+    },
+    {
+        "pregunta": "¿Qué aprendió el chatbot del preentrenamiento?",
+        "respuesta": "El conocimiento general del español: gramática, vocabulario y estructura de frases. Esto se evidencia en que todas las respuestas son gramaticalmente correctas y usan vocabulario técnico apropiado, incluso cuando el contenido es incorrecto. El idioma viene del preentrenamiento, el contenido técnico del ajuste fino."
+    },
+    {
+        "pregunta": "¿Cómo se comparan las consultas con las claves?",
+        "respuesta": "Mediante el producto escalar. Se calcula QK^T, donde cada elemento (i,j) es el producto escalar entre la consulta del token i y la clave del token j. Un valor alto indica alta compatibilidad. Estas puntuaciones se escalan por raíz de d_k y se normalizan con softmax."
+    },
+    {
+        "pregunta": "¿Qué produce la multiplicación QK^T?",
+        "respuesta": "Una matriz de puntuaciones de dimensión n x n, donde n es el número de tokens. El elemento (i,j) mide la compatibilidad entre la consulta del token i y la clave del token j. Valores altos significan que el token j es relevante para el token i."
+    },
+    {
+        "pregunta": "¿Por qué se llama atención multi-cabezal?",
+        "respuesta": "Porque ejecuta h funciones de atención en paralelo, cada una en un subespacio diferente. Cada cabezal puede especializarse en capturar un tipo diferente de relación. Las salidas se concatenan y se combinan con la matriz W^O."
+    },
+    {
+        "pregunta": "¿Qué es la atención enmascarada?",
+        "respuesta": "Es la autoatención del decodificador donde se aplica una máscara que pone menos infinito en las posiciones futuras antes de la softmax. Esto fuerza que los pesos de atención de posiciones futuras sean cero, impidiendo que el modelo vea tokens que aún no ha generado."
+    },
+    {
+        "pregunta": "¿Por qué se suma la codificación posicional al embedding?",
+        "respuesta": "Para inyectar información de la posición de cada token sin destruir su información semántica. La suma preserva ambas informaciones de forma aditiva. El modelo aprende a separarlas mediante las proyecciones Q, K, V en las capas de atención."
+    },
+    {
+        "pregunta": "¿Qué es una capa de atención?",
+        "respuesta": "Es una sub-capa del Transformer que calcula la función de atención multi-cabezal. Recibe la secuencia de entrada, la proyecta en consultas, claves y valores para cada cabezal, calcula los pesos de atención y produce representaciones contextualizadas como salida."
+    },
+    {
+        "pregunta": "¿Cómo fluye el gradiente en una conexión residual?",
+        "respuesta": "La jacobiana de x + F(x) respecto a x es I + dF/dx. El término identidad I proporciona un camino directo que transmite el gradiente sin atenuación. El segundo término aporta información adicional a través de F pero su posible atenuación no compromete el flujo global."
+    },
+    {
+        "pregunta": "¿Qué es una conexión residual en palabras simples?",
+        "respuesta": "Es un atajo que suma la entrada de una capa directamente a su salida. En vez de que toda la información pase obligatoriamente por la transformación, parte de ella la rodea. Esto garantiza que el gradiente pueda fluir hacia atrás sin atenuarse."
+    },
+    {
+        "pregunta": "¿Qué problema resuelve la normalización de capa?",
+        "respuesta": "Evita que las activaciones crezcan sin control por la acumulación de sumas residuales capa tras capa. Sin normalización, los valores pueden alcanzar magnitudes extremas que saturan las funciones de activación y anulan los gradientes."
+    },
+    {
+        "pregunta": "¿Cómo se combinan las salidas de los cabezales?",
+        "respuesta": "Se concatenan en un solo vector de dimensión d_model y se multiplican por la matriz de salida W^O. Esta proyección mezcla la información de todos los cabezales, combinando las diferentes relaciones que cada uno ha capturado."
+    },
+    {
+        "pregunta": "¿Qué pasa si el gradiente explota?",
+        "respuesta": "Las actualizaciones de pesos son tan grandes que los valores numéricos se desbordan, produciendo NaN. El entrenamiento se vuelve inestable y el modelo deja de aprender. Se previene con gradient clipping, que limita la norma del gradiente a un valor máximo."
+    },
+    {
+        "pregunta": "¿Qué es la log-verosimilitud en GPT?",
+        "respuesta": "Es la suma de los logaritmos de las probabilidades que el modelo asigna a los tokens correctos. Maximizar la log-verosimilitud equivale a minimizar su negativa, que es la función de pérdida. Un modelo perfecto asignaría probabilidad 1 a cada token correcto."
+    },
+    {
+        "pregunta": "¿Qué tipo de aprendizaje usa el preentrenamiento de GPT?",
+        "respuesta": "Aprendizaje auto-supervisado: el modelo aprende a predecir la siguiente palabra sin necesidad de etiquetas humanas. El propio texto sirve como supervisión, ya que cada palabra actúa como etiqueta para la predicción en la posición anterior."
+    },
+    {
+        "pregunta": "¿Cómo se entrena el Transformer?",
+        "respuesta": "Mediante retropropagación y descenso de gradiente, como cualquier red neuronal. La diferencia es que los gradientes fluyen tanto a través de las capas de atención como de las redes feed-forward, y las conexiones residuales con normalización de capa garantizan que la señal llegue a todas las capas."
+    },
+    {
+        "pregunta": "¿Por qué d_k = 64 en el Transformer original?",
+        "respuesta": "Porque con 8 cabezales y d_model = 512, la dimensión de cada cabezal es d_k = 512/8 = 64. Esta elección mantiene el coste computacional total equivalente al de un único cabezal con dimensión 512."
+    },
+    {
+        "pregunta": "¿Se puede entrenar un Transformer sin conexiones residuales?",
+        "respuesta": "Teóricamente sí, pero en la práctica el gradiente se desvanecería al retropropagarse a través de las múltiples capas, impidiendo que las primeras aprendan. Las conexiones residuales son esenciales para que la profundidad del Transformer sea entrenable."
+    },
+    {
+        "pregunta": "¿Qué significa fine-tuning?",
+        "respuesta": "Es el proceso de adaptar un modelo preentrenado a una tarea específica usando un dataset pequeño. Los pesos del preentrenamiento se usan como punto de partida y se ajustan ligeramente para la nueva tarea. Requiere mucho menos datos y cómputo que entrenar desde cero."
+    },
+    {
+        "pregunta": "¿Cómo funciona el chatbot internamente?",
+        "respuesta": "Recibe la pregunta del usuario, la formatea con tokens especiales, la procesa a través de los bloques del decodificador de GPT-2, y genera la respuesta token por token. En cada paso calcula probabilidades sobre el vocabulario y selecciona el siguiente token hasta producir el token de fin."
+    },
+    {
+        "pregunta": "¿Qué papel juega la temperatura en el chatbot?",
+        "respuesta": "Controla cuánto riesgo toma el modelo al generar texto. Con temperatura baja elige siempre los tokens más probables, produciendo respuestas repetitivas pero seguras. Con temperatura alta explora opciones menos probables, produciendo respuestas más variadas pero potencialmente incoherentes."
+    },
+    {
+        "pregunta": "¿Qué es el Byte Pair Encoding?",
+        "respuesta": "Es el algoritmo de tokenización que usa GPT-2. Empieza con caracteres individuales y fusiona iterativamente los pares más frecuentes del corpus. Produce un vocabulario de subpalabras que puede representar cualquier texto, incluso palabras no vistas durante el entrenamiento."
+    },
+    {
+        "pregunta": "¿Cómo afecta el tamaño del dataset al overfitting?",
+        "respuesta": "Un dataset más grande obliga al modelo a aprender patrones generales porque no puede memorizar tantos ejemplos. Con pocos datos, un modelo grande tiene capacidad de sobra para memorizar cada ejemplo literalmente sin extraer las reglas subyacentes."
+    },
+    {
+        "pregunta": "¿Por qué 50 épocas causan overfitting?",
+        "respuesta": "Porque el modelo ve cada uno de los 312 ejemplos 50 veces. Con tantas repeticiones sobre un dataset tan pequeño, el modelo memoriza las respuestas exactas en vez de aprender los patrones generales que le permitirían responder a formulaciones nuevas."
+    },
+    {
+        "pregunta": "¿Qué es Hugging Face?",
+        "respuesta": "Es una plataforma y biblioteca de Python que proporciona acceso a miles de modelos preentrenados. Permite descargar, usar y ajustar finamente modelos como GPT-2 con pocas líneas de código, facilitando la implementación de aplicaciones basadas en Transformers."
+    },
+    {
+        "pregunta": "¿Qué papel tiene cada componente del Transformer?",
+        "respuesta": "La autoatención captura relaciones entre tokens, la red feed-forward transforma cada representación individualmente, las conexiones residuales garantizan el flujo del gradiente, la normalización de capa estabiliza las activaciones, y la codificación posicional inyecta información del orden."
+    },
+    {
+        "pregunta": "¿Qué es Google Colab?",
+        "respuesta": "Es un servicio gratuito de Google que proporciona acceso a GPUs en la nube. Permite ejecutar código Python en notebooks con hardware acelerado, lo que resulta útil para entrenar modelos de aprendizaje profundo sin necesidad de disponer de GPU propia."
+    },
+    {
+        "pregunta": "Describe brevemente qué es el Transformer.",
+        "respuesta": "Es una arquitectura de red neuronal que procesa secuencias usando autoatención en lugar de recurrencia o convolución. Permite que cualquier par de tokens interactúe directamente y resuelve el problema del desvanecimiento del gradiente mediante conexiones residuales y normalización de capa."
+    },
+    {
+        "pregunta": "¿Por qué es importante el Transformer?",
+        "respuesta": "Porque revolucionó el procesamiento del lenguaje natural al resolver simultáneamente tres limitaciones de las arquitecturas previas: las dependencias a larga distancia, el desvanecimiento del gradiente y la imposibilidad de paralelización. Es la base de todos los grandes modelos de lenguaje actuales como GPT y BERT."
+    },
+    {
+        "pregunta": "¿Qué son Q, K y V en la atención?",
+        "respuesta": "Son tres proyecciones de la entrada: Q (consultas) representa lo que cada token busca, K (claves) representa lo que ofrece para ser encontrado, y V (valores) contiene la información que se transmite. Se obtienen multiplicando la entrada por las matrices aprendidas W^Q, W^K y W^V."
+    },
+    {
+        "pregunta": "¿Por qué la softmax produce una distribución de probabilidad?",
+        "respuesta": "Porque la función exponencial hace que todos los valores sean positivos, y la división por la suma de todas las exponenciales garantiza que sumen 1. Estas dos propiedades definen una distribución de probabilidad discreta."
+    },
+    {
+        "pregunta": "Explica la atención cruzada brevemente.",
+        "respuesta": "Conecta el decodificador con el codificador. Las consultas Q vienen del decodificador y las claves K y valores V de la salida del codificador. Así el decodificador puede consultar toda la representación de la entrada en cada paso de generación."
+    },
+    {
+        "pregunta": "¿Por qué el vanishing gradient impide aprender?",
+        "respuesta": "Porque los gradientes que llegan a las primeras capas son tan pequeños que las actualizaciones de pesos son prácticamente nulas. Esas capas no reciben señal de error suficiente para saber en qué dirección ajustar sus pesos, y efectivamente dejan de aprender."
+    },
+    {
+        "pregunta": "¿Cómo se calcula la atención en una frase?",
+        "respuesta": "Primero cada token se proyecta en consulta, clave y valor. Luego se calcula el producto escalar de cada consulta con todas las claves, se divide por raíz de d_k, se aplica softmax para obtener pesos, y se multiplican por los valores. El resultado es una representación contextualizada de cada token."
+    },
+    {
+        "pregunta": "¿Qué información contiene la salida de la atención?",
+        "respuesta": "Una representación contextualizada de cada token que incorpora información ponderada de todos los demás tokens de la secuencia. Cada vector de salida es una mezcla de los valores, donde los pesos de la mezcla los determinan las compatibilidades entre consultas y claves."
+    },
+    {
+        "pregunta": "¿Por qué se necesita la codificación posicional si ya tenemos embeddings?",
+        "respuesta": "Porque los embeddings solo codifican el significado de la palabra, no su posición. La palabra gato tiene el mismo embedding independientemente de dónde aparezca. La codificación posicional añade información de la posición para que el modelo pueda distinguir el orden de las palabras."
+    },
+    {
+        "pregunta": "¿Cómo sabe GPT cuándo dejar de generar?",
+        "respuesta": "Genera tokens hasta que produce un token especial de fin de secuencia o hasta alcanzar la longitud máxima configurada. En el chatbot, este token es <fin>, que indica que la respuesta está completa."
+    },
+    {
+        "pregunta": "¿Qué es el mecanismo de atención en una frase?",
+        "respuesta": "Es el proceso por el cual cada palabra de la frase mira a todas las demás para construir su representación contextualizada. Calcula pesos que indican cuánta importancia da cada palabra a cada una de las demás, y usa esos pesos para mezclar la información."
+    },
+    {
+        "pregunta": "¿Cuál es la entrada del Transformer?",
+        "respuesta": "Una secuencia de tokens, donde cada token se convierte en un vector de embedding de dimensión d_model. A este embedding se le suma la codificación posicional, y el resultado se introduce en la primera capa del codificador o decodificador."
+    },
+    {
+        "pregunta": "¿Por qué la normalización de capa usa gamma y beta?",
+        "respuesta": "Para recuperar capacidad expresiva después de estandarizar. La estandarización fuerza media cero y varianza uno, lo que puede ser demasiado restrictivo. Los parámetros aprendibles gamma y beta permiten que la red reescale y desplace la distribución si la representación óptima lo requiere."
+    },
+    {
+        "pregunta": "¿Qué es d_k?",
+        "respuesta": "Es la dimensión de los vectores de consulta y clave en cada cabezal de atención. En el Transformer original con d_model = 512 y h = 8 cabezales, d_k = 512/8 = 64. Determina el tamaño del espacio donde se mide la compatibilidad entre tokens."
+    },
+    {
+        "pregunta": "¿Qué es d_v?",
+        "respuesta": "Es la dimensión de los vectores de valor en cada cabezal de atención. Determina la riqueza de la información que cada token puede transmitir. En el Transformer original d_v = d_k = 64, aunque matemáticamente pueden ser diferentes."
+    },
+    {
+        "pregunta": "¿Cuántos parámetros tiene GPT-2?",
+        "respuesta": "La versión small tiene aproximadamente 124 millones de parámetros, distribuidos entre las matrices de atención, las redes feed-forward, los embeddings y las normalizaciones de capa de sus 12 bloques. Es el modelo usado para el chatbot de este trabajo."
+    },
+    {
+        "pregunta": "¿Qué diferencia al Transformer de las redes anteriores?",
+        "respuesta": "Tres diferencias fundamentales: conecta cualquier par de tokens directamente en un paso frente a O(D) en RNN, resuelve el vanishing gradient con conexiones residuales y normalización, y se paraleliza completamente frente a la secuencialidad de las RNN."
+    },
+    {
+        "pregunta": "¿Cuál es la salida del codificador?",
+        "respuesta": "Una matriz de representaciones contextualizadas de dimensión n x d_model, donde n es el número de tokens de la entrada. Cada fila contiene la representación de un token enriquecida con información de toda la secuencia. Esta matriz se usa como entrada para la atención cruzada del decodificador."
+    },
+    {
+        "pregunta": "¿Cómo afecta el número de épocas al entrenamiento?",
+        "respuesta": "Más épocas permiten al modelo aprender mejor los datos pero aumentan el riesgo de overfitting. Con pocas épocas el modelo puede no captar los patrones. Con demasiadas, memoriza los ejemplos. El punto óptimo depende del tamaño del dataset y del modelo."
+    },
+    {
+        "pregunta": "Explica la conexión residual en el Transformer.",
+        "respuesta": "En cada sub-capa, la salida se define como x + F(x): la entrada original sumada a la transformación. La red solo aprende el residuo F. Esto crea un camino directo para el gradiente representado por la identidad I, evitando el desvanecimiento del gradiente en redes profundas."
+    },
+    {
+        "pregunta": "¿Qué es el ajuste fino del chatbot?",
+        "respuesta": "Es el proceso de reentrenar GPT-2 español con un dataset de 312 pares pregunta-respuesta sobre el Transformer. Los pesos preentrenados se usan como punto de partida y se ajustan para que el modelo aprenda a generar respuestas sobre este dominio específico."
+    },
+    {
+        "pregunta": "¿Qué papel tiene cada sub-capa del codificador?",
+        "respuesta": "La autoatención multi-cabezal permite que cada token atienda a todos los demás, capturando relaciones contextuales. La red feed-forward transforma cada representación de forma independiente, añadiendo capacidad no lineal. Ambas están envueltas por conexión residual y normalización."
+    },
+    {
+        "pregunta": "¿Cuál es la fórmula de la atención?",
+        "respuesta": "Attention(Q,K,V) = softmax(QK^T / sqrt(d_k)) V. El producto QK^T calcula compatibilidades, se escala por raíz de d_k para evitar saturación de la softmax, la softmax normaliza a distribución de probabilidad, y se multiplica por V para obtener la salida ponderada."
+    },
+    {
+        "pregunta": "¿Cómo se comparan el codificador y el decodificador?",
+        "respuesta": "El codificador procesa toda la entrada en paralelo con autoatención sin restricciones. El decodificador genera la salida token por token con autoatención enmascarada y tiene una capa adicional de atención cruzada para consultar la representación del codificador."
+    },
+    {
+        "pregunta": "¿Qué es una representación contextualizada en el Transformer?",
+        "respuesta": "Es el vector de salida de un token tras pasar por las capas de atención. A diferencia del embedding original que representa la palabra de forma aislada, incorpora información de las palabras relevantes del contexto. El mismo verbo tiene representaciones diferentes según la frase."
+    },
+    {
+        "pregunta": "¿Qué problema resuelve el factor 1/sqrt(d_k)?",
+        "respuesta": "Evita la saturación de la softmax. Sin escalar, cuando d_k es grande los productos escalares tienen varianza d_k y alcanzan valores extremos que hacen que la softmax concentre todo el peso en un solo token. Dividir por sqrt(d_k) normaliza la varianza a 1 y mantiene gradientes útiles."
+    },
+    {
+        "pregunta": "¿Qué pasa durante la inferencia del chatbot?",
+        "respuesta": "Se recibe la pregunta, se formatea con tokens especiales, se tokeniza y se pasa al modelo. GPT-2 genera la respuesta token por token: en cada paso calcula probabilidades sobre el vocabulario, elige un token según la temperatura configurada, y repite hasta generar el token de fin."
+    },
+    {
+        "pregunta": "¿Cómo se mide si el chatbot funciona bien?",
+        "respuesta": "De dos formas. Cuantitativamente, con la función de pérdida durante el entrenamiento. Cualitativamente, probando con preguntas del dataset y reformulaciones no vistas. La diferencia entre ambos resultados indica el grado de overfitting del modelo."
+    },
+    {
+        "pregunta": "¿Cuántas capas tiene GPT-2?",
+        "respuesta": "GPT-2 small tiene 12 bloques, cada uno con dos sub-capas: autoatención enmascarada y red feed-forward. Es una arquitectura decoder-only basada en el decodificador del Transformer, sin codificador ni atención cruzada."
+    },
+    {
+        "pregunta": "¿Qué es la conexión entre la teoría y la práctica en este TFG?",
+        "respuesta": "El chatbot demuestra los conceptos teóricos del Capítulo 2. Usa la arquitectura GPT basada en el Transformer, aplica el paradigma de preentrenamiento más ajuste fino, y el análisis del overfitting conecta con la definición de generalización del Capítulo 1."
+    },
+    {
+        "pregunta": "Resume el Transformer en tres frases.",
+        "respuesta": "Es una arquitectura que procesa secuencias usando autoatención en vez de recurrencia. La autoatención permite que cada token atienda directamente a todos los demás en un solo paso. Las conexiones residuales y la normalización de capa garantizan que los gradientes fluyan sin desvanecerse."
+    }
+]

@@ -32,7 +32,7 @@ Se recomienda utilizar GPU para el entrenamiento del modelo debido a la larga du
 ```bash
 python scripts/entrenar.py
 ```
-El modelo entrenado, junto con los checkpoints, se guardará en el directorio `modelo/`, el cual es creado al ejecutar `entrenar.py`.
+El modelo entrenado, junto con los checkpoints, se guardará en el directorio `modelo/`.
 
 ### 3. Chatear con el Modelo
 Con el modelo ya entrenado, puedes interactuar con él a través de la consola.

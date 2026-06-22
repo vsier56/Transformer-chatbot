@@ -1,6 +1,6 @@
 # Chatbot sobre el Modelo Transformer
 
-Este proyecto es un chatbot basado en una red GPT-2, fine-tuneado para responder preguntas específicas sobre el modelo Transformer. Ha sido desarrollado como parte de mi Trabajo de Fin de Grado (TFG) de Matemáticas en la Universidad de Zaragoza.
+Este proyecto es un chatbot basado en un modelo GPT-2, fine-tuneado para responder preguntas específicas sobre el modelo Transformer. Ha sido desarrollado como parte de mi Trabajo de Fin de Grado (TFG) de Matemáticas en la Universidad de Zaragoza.
 
 ## Autor
 - **Víctor Sierra Vicén**

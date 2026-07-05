@@ -54,7 +54,9 @@ python scripts/generar_curva_loss.py
 TFG-chatbot/
 │
 ├── data/
-│   ├── dataset_completo.json         # Dataset original en formato JSON
+│   ├── dataset_completo.json         # Dataset original en formato JSON (480 ejemplos)
+|   ├── dataset_150.json              # Dataset con 150 ejemplos
+|   ├── dataset_312.json              # Dataset con 312 ejemplos
 │   └── procesado/
 │       └── train.json                # Dataset procesado y listo para entrenar
 │

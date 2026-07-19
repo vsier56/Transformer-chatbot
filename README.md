@@ -8,6 +8,11 @@ Este proyecto es un chatbot basado en un modelo GPT-2, fine-tuneado para respond
 ## Descripción del Proyecto
 El objetivo de este chatbot es actuar como un asistente experto en el paper "Attention Is All You Need", presentado por Vaswani et al. en el 2017. El modelo GPT-2 ha sido entrenado con un dataset específico de preguntas y respuestas sobre la arquitectura, mecanismos y conceptos clave del modelo Transformer.
 
+## Memoria del TFG (Documento Teórico)
+Este repositorio contiene la implementación práctica del proyecto. Toda la fundamentación matemática (análisis del desvanecimiento del gradiente, matrices Jacobianas y la complejidad O(1) de la autoatención) se encuentra detallada en la memoria escrita.
+
+📄 **[Leer la Memoria del TFG en PDF](Memoria_TFG_Victor_Sierra.pdf)**
+
 ## Requisitos
 - Python 3.10 o superior
 - Las dependencias se encuentran en `requirements.txt`. Para instalarlas, ejecuta:

@@ -76,6 +76,7 @@ TFG-chatbot/
 │   ├── model.safetensors             # Pesos del modelo entrenado
 │   └── ...                           # Otros archivos generados durante el entrenamiento
 │
+├── Memoria_TFG_Víctor_Sierra.pdf     # Documento completo con el razonamiento matemático
 ├── requirements.txt                  # Dependencias del proyecto
 └── README.md                         # Este archivo
 ```

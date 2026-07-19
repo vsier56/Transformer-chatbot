@@ -11,7 +11,7 @@ El objetivo de este chatbot es actuar como un asistente experto en el paper "Att
 ## Memoria del TFG (Documento Teórico)
 Este repositorio contiene la implementación práctica del proyecto. Toda la fundamentación matemática (análisis del desvanecimiento del gradiente, matrices Jacobianas y la complejidad O(1) de la autoatención) se encuentra detallada en la memoria escrita.
 
-📄 **[Leer la Memoria del TFG en PDF](Memoria_TFG_Victor_Sierra.pdf)**
+📄 **[Leer la Memoria del TFG en PDF](Memoria_TFG_Víctor_Sierra.pdf)**
 
 ## Requisitos
 - Python 3.10 o superior
